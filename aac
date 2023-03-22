@@ -1,0 +1,2485 @@
+爬取题目并启动.pyc (Python 3.10)
+[Code]
+    File Name: 爬取题目并启动.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 11
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        'generate_articles_by_openai_completion'
+        'threading'
+        'upload'
+        'sys'
+        'datetime'
+        'uuid'
+        'requests'
+        'pkg.parse_curl'
+        'parse_from_file'
+        'upload_util'
+        'loginBaidu'
+        'get_username'
+        'os'
+        'time'
+        'tkinter'
+        'tk'
+        'loguru'
+        'logger'
+        'pkg'
+        'utils'
+        'urllib3'
+        'random'
+        'lxml'
+        'etree'
+        'psutil'
+        'daili'
+        'str'
+        'check_date'
+        'check_time'
+        'check_pc'
+        'check_double_exe'
+        'count_submited'
+        'quit'
+        'ui'
+        'main'
+        '__name__'
+        'sleep'
+        'print'
+        'open'
+        'f'
+        'readline'
+        'line'
+        'data_decrypt'
+        'plaintext'
+        'listdir'
+        'dirs'
+        'len'
+        'count'
+        'int'
+        'threads'
+        'drivers'
+        'dl'
+        'run'
+        'Exception'
+        'e'
+        'error'
+        'info'
+        'format'
+        'repr'
+        'window'
+        'range'
+        'i'
+        'curl_data'
+        'FileNotFoundError'
+        'headers'
+        'get_proxies'
+        'proxies'
+        'driver'
+        'append'
+        'Thread'
+        'thread_main'
+        'daemon'
+        'start'
+        'mainloop'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        0
+        None
+        (
+            'parse_from_file'
+        )
+        (
+            'loginBaidu'
+            'get_username'
+        )
+        (
+            '*'
+        )
+        (
+            'logger'
+        )
+        (
+            'utils'
+        )
+        (
+            'etree'
+        )
+        [Code]
+            File Name: 爬取题目并启动.py
+            Object Name: daili
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 2
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                'urllib3'
+                'disable_warnings'
+                'send_request'
+                'parse_data'
+                'check_ip'
+                'save'
+                'run'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'daili'
+                [Code]
+                    File Name: 爬取题目并启动.py
+                    Object Name: send_request
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 6
+                    Stack Size: 6
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'logger'
+                        'info'
+                        'format'
+                        'requests'
+                        'adapters'
+                        'DEFAULT_RETRIES'
+                        'get'
+                        'content'
+                        'decode'
+                        'time'
+                        'sleep'
+                        'random'
+                        'randint'
+                    [Var Names]
+                        'self'
+                        'page'
+                        'base_url'
+                        'headers'
+                        'response'
+                        'data'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        '\xe6\xad\xa3\xe5\x9c\xa8\xe6\x8a\x93\xe5\x8f\x96\xe4\xbb\xa3\xe7\x90\x86.....'
+                        'https://www.kuaidaili.com/free/inha/{}/'
+                        'Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1'
+                        'close'
+                        (
+                            'User-Agent'
+                            'Connection'
+                        )
+                        5
+                        (
+                            30
+                            50
+                        )
+                        False
+                        (
+                            'headers'
+                            'timeout'
+                            'verify'
+                        )
+                        3
+                    [Disassembly]
+                        0       LOAD_GLOBAL                   0: logger
+                        2       LOAD_METHOD                   1: info
+                        4       LOAD_CONST                    1: '\xe6\xad\xa3\xe5\x9c\xa8\xe6\x8a\x93\xe5\x8f\x96\xe4\xbb\xa3\xe7\x90\x86.....'
+                        6       CALL_METHOD                   1
+                        8       POP_TOP                       
+                        10      LOAD_CONST                    2: 'https://www.kuaidaili.com/free/inha/{}/'
+                        12      LOAD_METHOD                   2: format
+                        14      LOAD_FAST                     1: page
+                        16      CALL_METHOD                   1
+                        18      STORE_FAST                    2: base_url
+                        20      LOAD_CONST                    3: 'Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1'
+                        22      LOAD_CONST                    4: 'close'
+                        24      LOAD_CONST                    5: ('User-Agent', 'Connection')
+                        26      BUILD_CONST_KEY_MAP           2
+                        28      STORE_FAST                    3: headers
+                        30      LOAD_CONST                    6: 5
+                        32      LOAD_GLOBAL                   3: NULL + info
+                        34      LOAD_ATTR                     4: adapters
+                        36      STORE_ATTR                    5: DEFAULT_RETRIES
+                        38      LOAD_GLOBAL                   3: NULL + info
+                        40      LOAD_ATTR                     6: get
+                        42      LOAD_FAST                     2: base_url
+                        44      LOAD_FAST                     3: headers
+                        46      LOAD_CONST                    7: (30, 50)
+                        48      LOAD_CONST                    8: False
+                        50      LOAD_CONST                    9: ('headers', 'timeout', 'verify')
+                        52      CALL_FUNCTION_KW              4
+                        54      STORE_FAST                    4: response
+                        56      LOAD_FAST                     4: response
+                        58      LOAD_ATTR                     7: content
+                        60      LOAD_METHOD                   8: decode
+                        62      CALL_METHOD                   0
+                        64      STORE_FAST                    5: data
+                        66      LOAD_GLOBAL                   9: NULL + adapters
+                        68      LOAD_METHOD                   10: sleep
+                        70      LOAD_GLOBAL                   11: NULL + DEFAULT_RETRIES
+                        72      LOAD_METHOD                   12: randint
+                        74      LOAD_CONST                    10: 3
+                        76      LOAD_CONST                    6: 5
+                        78      CALL_METHOD                   2
+                        80      CALL_METHOD                   1
+                        82      POP_TOP                       
+                        84      LOAD_FAST                     5: data
+                        86      RETURN_VALUE                  
+                'daili.send_request'
+                [Code]
+                    File Name: 爬取题目并启动.py
+                    Object Name: parse_data
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 4
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'etree'
+                        'HTML'
+                        'xpath'
+                    [Var Names]
+                        'self'
+                        'data'
+                        'html_data'
+                        'parse_list'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        '//table[@class="table table-bordered table-striped"]/tbody/tr'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                   0: etree
+                        2       LOAD_METHOD                   1: HTML
+                        4       LOAD_FAST                     1: data
+                        6       CALL_METHOD                   1
+                        8       STORE_FAST                    2: html_data
+                        10      LOAD_FAST                     2: html_data
+                        12      LOAD_METHOD                   2: xpath
+                        14      LOAD_CONST                    1: '//table[@class="table table-bordered table-striped"]/tbody/tr'
+                        16      CALL_METHOD                   1
+                        18      STORE_FAST                    3: parse_list
+                        20      LOAD_FAST                     3: parse_list
+                        22      RETURN_VALUE                  
+                'daili.parse_data'
+                [Code]
+                    File Name: 爬取题目并启动.py
+                    Object Name: check_ip
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 7
+                    Stack Size: 11
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'requests'
+                        'get'
+                        'status_code'
+                        'append'
+                        'Exception'
+                        'print'
+                    [Var Names]
+                        'self'
+                        'proxies_list'
+                        'headers'
+                        'can_use'
+                        'proxies'
+                        'response'
+                        'e'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        'User-Agent'
+                        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36'
+                        'https://www.baidu.com/'
+                        0.1
+                        (
+                            'headers'
+                            'proxies'
+                            'timeout'
+                        )
+                        200
+                    [Disassembly]
+                        0       LOAD_CONST                    1: 'User-Agent'
+                        2       LOAD_CONST                    2: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36'
+                        4       BUILD_MAP                     1
+                        6       STORE_FAST                    2: headers
+                        8       BUILD_LIST                    0
+                        10      STORE_FAST                    3: can_use
+                        12      LOAD_FAST                     1: proxies_list
+                        14      GET_ITER                      
+                        16      FOR_ITER                      45 (to 108)
+                        18      STORE_FAST                    4: proxies
+                        20      SETUP_FINALLY                 21 (to 64)
+                        22      LOAD_GLOBAL                   0: requests
+                        24      LOAD_ATTR                     1: get
+                        26      LOAD_CONST                    3: 'https://www.baidu.com/'
+                        28      LOAD_FAST                     2: headers
+                        30      LOAD_FAST                     4: proxies
+                        32      LOAD_CONST                    4: 0.1
+                        34      LOAD_CONST                    5: ('headers', 'proxies', 'timeout')
+                        36      CALL_FUNCTION_KW              4
+                        38      STORE_FAST                    5: response
+                        40      LOAD_FAST                     5: response
+                        42      LOAD_ATTR                     2: status_code
+                        44      LOAD_CONST                    6: 200
+                        46      COMPARE_OP                    2 (==)
+                        48      POP_JUMP_IF_FALSE             30 (to 60)
+                        50      LOAD_FAST                     3: can_use
+                        52      LOAD_METHOD                   3: append
+                        54      LOAD_FAST                     4: proxies
+                        56      CALL_METHOD                   1
+                        58      POP_TOP                       
+                        60      POP_BLOCK                     
+                        62      JUMP_ABSOLUTE                 8 (to 16)
+                        64      DUP_TOP                       
+                        66      LOAD_GLOBAL                   4: status_code
+                        68      JUMP_IF_NOT_EXC_MATCH         53 (to 106)
+                        70      POP_TOP                       
+                        72      STORE_FAST                    6: e
+                        74      POP_TOP                       
+                        76      SETUP_FINALLY                 10 (to 98)
+                        78      LOAD_GLOBAL                   5: NULL + status_code
+                        80      LOAD_FAST                     6: e
+                        82      CALL_FUNCTION                 1
+                        84      POP_TOP                       
+                        86      POP_BLOCK                     
+                        88      POP_EXCEPT                    
+                        90      LOAD_CONST                    0: None
+                        92      STORE_FAST                    6: e
+                        94      DELETE_FAST                   6: e
+                        96      JUMP_ABSOLUTE                 8 (to 16)
+                        98      LOAD_CONST                    0: None
+                        100     STORE_FAST                    6: e
+                        102     DELETE_FAST                   6: e
+                        104     RERAISE                       1
+                        106     RERAISE                       0
+                        108     LOAD_FAST                     3: can_use
+                        110     RETURN_VALUE                  
+                'daili.check_ip'
+                [Code]
+                    File Name: 爬取题目并启动.py
+                    Object Name: save
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 5
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'open'
+                        'range'
+                        'len'
+                        'str'
+                        'write'
+                        'close'
+                    [Var Names]
+                        'self'
+                        'can_use'
+                        'file'
+                        'i'
+                        's'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        'conf/IP.txt'
+                        'w'
+                        '\n'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                   0: open
+                        2       LOAD_CONST                    1: 'conf/IP.txt'
+                        4       LOAD_CONST                    2: 'w'
+                        6       CALL_FUNCTION                 2
+                        8       STORE_FAST                    2: file
+                        10      LOAD_GLOBAL                   1: NULL + open
+                        12      LOAD_GLOBAL                   2: range
+                        14      LOAD_FAST                     1: can_use
+                        16      CALL_FUNCTION                 1
+                        18      CALL_FUNCTION                 1
+                        20      GET_ITER                      
+                        22      FOR_ITER                      15 (to 54)
+                        24      STORE_FAST                    3: i
+                        26      LOAD_GLOBAL                   3: NULL + range
+                        28      LOAD_FAST                     1: can_use
+                        30      LOAD_FAST                     3: i
+                        32      BINARY_SUBSCR                 
+                        34      CALL_FUNCTION                 1
+                        36      LOAD_CONST                    3: '\n'
+                        38      BINARY_ADD                    
+                        40      STORE_FAST                    4: s
+                        42      LOAD_FAST                     2: file
+                        44      LOAD_METHOD                   4: write
+                        46      LOAD_FAST                     4: s
+                        48      CALL_METHOD                   1
+                        50      POP_TOP                       
+                        52      JUMP_ABSOLUTE                 11 (to 22)
+                        54      LOAD_FAST                     2: file
+                        56      LOAD_METHOD                   5: close
+                        58      CALL_METHOD                   0
+                        60      POP_TOP                       
+                        62      LOAD_CONST                    0: None
+                        64      RETURN_VALUE                  
+                'daili.save'
+                [Code]
+                    File Name: 爬取题目并启动.py
+                    Object Name: run
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 22
+                    Stack Size: 10
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'range'
+                        'send_request'
+                        'parse_data'
+                        'xpath'
+                        'join'
+                        'append'
+                        'print'
+                        'len'
+                        'check_ip'
+                        'save'
+                        'Exception'
+                        'logger'
+                        'info'
+                        'requests'
+                        'get'
+                        'text'
+                        'encode'
+                        'etree'
+                        'HTML'
+                        'time'
+                        'sleep'
+                        'random'
+                        'randint'
+                    [Var Names]
+                        'self'
+                        'proxies_list'
+                        'page'
+                        'data'
+                        'parse_list'
+                        'tr'
+                        'proxies_dict'
+                        'http_type'
+                        'ip_num'
+                        'port_num'
+                        'can_use'
+                        'e'
+                        'url'
+                        'headers'
+                        'i'
+                        'response'
+                        'text'
+                        'html'
+                        'tr_list'
+                        'td'
+                        'ip_'
+                        'port_'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        1
+                        5
+                        './td[4]/text()'
+                        './td[1]/text()'
+                        './td[2]/text()'
+                        ' '
+                        ':'
+                        '\xe8\x8e\xb7\xe5\x8f\x96\xe5\x88\xb0\xe7\x9a\x84\xe4\xbb\xa3\xe7\x90\x86IP\xe6\x95\xb0\xe9\x87\x8f\xef\xbc\x9a'
+                        '\xe8\x83\xbd\xe7\x94\xa8\xe7\x9a\x84\xe4\xbb\xa3\xe7\x90\x86IP\xe6\x95\xb0\xe9\x87\x8f\xef\xbc\x9a'
+                        '\xe6\x8a\x93\xe5\x8f\x96\xe5\xa4\xb1\xe8\xb4\xa5\xef\xbc\x8c\xe6\x9b\xb4\xe6\x8d\xa2\xe4\xbb\xa3\xe7\x90\x86\xe7\xbd\x91\xe7\xab\x99....'
+                        '\xe6\xad\xa3\xe5\x9c\xa8\xe6\x8a\x93\xe5\x8f\x96\xe4\xbb\xa3\xe7\x90\x86....'
+                        'https://www.baidu.com/'
+                        'User-Agent'
+                        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36'
+                        'http://www.ip3366.net/free/?page='
+                        False
+                        (
+                            'url'
+                            'headers'
+                            'verify'
+                        )
+                        'ISO-8859-1'
+                        '/html/body/div[2]/div/div[2]/table/tbody/tr'
+                        0
+                        10
+                    [Disassembly]
+                        0       BUILD_LIST                    0
+                        2       STORE_FAST                    1: proxies_list
+                        4       SETUP_FINALLY                 95 (to 196)
+                        6       LOAD_GLOBAL                   0: range
+                        8       LOAD_CONST                    1: 1
+                        10      LOAD_CONST                    2: 5
+                        12      CALL_FUNCTION                 2
+                        14      GET_ITER                      
+                        16      FOR_ITER                      62 (to 142)
+                        18      STORE_FAST                    2: page
+                        20      LOAD_FAST                     0: self
+                        22      LOAD_METHOD                   1: send_request
+                        24      LOAD_FAST                     2: page
+                        26      CALL_METHOD                   1
+                        28      STORE_FAST                    3: data
+                        30      LOAD_FAST                     0: self
+                        32      LOAD_METHOD                   2: parse_data
+                        34      LOAD_FAST                     3: data
+                        36      CALL_METHOD                   1
+                        38      STORE_FAST                    4: parse_list
+                        40      LOAD_FAST                     4: parse_list
+                        42      GET_ITER                      
+                        44      FOR_ITER                      47 (to 140)
+                        46      STORE_FAST                    5: tr
+                        48      BUILD_MAP                     0
+                        50      STORE_FAST                    6: proxies_dict
+                        52      LOAD_FAST                     5: tr
+                        54      LOAD_METHOD                   3: xpath
+                        56      LOAD_CONST                    3: './td[4]/text()'
+                        58      CALL_METHOD                   1
+                        60      STORE_FAST                    7: http_type
+                        62      LOAD_FAST                     5: tr
+                        64      LOAD_METHOD                   3: xpath
+                        66      LOAD_CONST                    4: './td[1]/text()'
+                        68      CALL_METHOD                   1
+                        70      STORE_FAST                    8: ip_num
+                        72      LOAD_FAST                     5: tr
+                        74      LOAD_METHOD                   3: xpath
+                        76      LOAD_CONST                    5: './td[2]/text()'
+                        78      CALL_METHOD                   1
+                        80      STORE_FAST                    9: port_num
+                        82      LOAD_CONST                    6: ' '
+                        84      LOAD_METHOD                   4: join
+                        86      LOAD_FAST                     7: http_type
+                        88      CALL_METHOD                   1
+                        90      STORE_FAST                    7: http_type
+                        92      LOAD_CONST                    6: ' '
+                        94      LOAD_METHOD                   4: join
+                        96      LOAD_FAST                     8: ip_num
+                        98      CALL_METHOD                   1
+                        100     STORE_FAST                    8: ip_num
+                        102     LOAD_CONST                    6: ' '
+                        104     LOAD_METHOD                   4: join
+                        106     LOAD_FAST                     9: port_num
+                        108     CALL_METHOD                   1
+                        110     STORE_FAST                    9: port_num
+                        112     LOAD_FAST                     8: ip_num
+                        114     LOAD_CONST                    7: ':'
+                        116     BINARY_ADD                    
+                        118     LOAD_FAST                     9: port_num
+                        120     BINARY_ADD                    
+                        122     LOAD_FAST                     6: proxies_dict
+                        124     LOAD_FAST                     7: http_type
+                        126     STORE_SUBSCR                  
+                        128     LOAD_FAST                     1: proxies_list
+                        130     LOAD_METHOD                   5: append
+                        132     LOAD_FAST                     6: proxies_dict
+                        134     CALL_METHOD                   1
+                        136     POP_TOP                       
+                        138     JUMP_ABSOLUTE                 22 (to 44)
+                        140     JUMP_ABSOLUTE                 8 (to 16)
+                        142     LOAD_GLOBAL                   6: xpath
+                        144     LOAD_CONST                    8: '\xe8\x8e\xb7\xe5\x8f\x96\xe5\x88\xb0\xe7\x9a\x84\xe4\xbb\xa3\xe7\x90\x86IP\xe6\x95\xb0\xe9\x87\x8f\xef\xbc\x9a'
+                        146     LOAD_GLOBAL                   7: NULL + xpath
+                        148     LOAD_FAST                     1: proxies_list
+                        150     CALL_FUNCTION                 1
+                        152     CALL_FUNCTION                 2
+                        154     POP_TOP                       
+                        156     LOAD_FAST                     0: self
+                        158     LOAD_METHOD                   8: check_ip
+                        160     LOAD_FAST                     1: proxies_list
+                        162     CALL_METHOD                   1
+                        164     STORE_FAST                    10: can_use
+                        166     LOAD_GLOBAL                   6: xpath
+                        168     LOAD_CONST                    9: '\xe8\x83\xbd\xe7\x94\xa8\xe7\x9a\x84\xe4\xbb\xa3\xe7\x90\x86IP\xe6\x95\xb0\xe9\x87\x8f\xef\xbc\x9a'
+                        170     LOAD_GLOBAL                   7: NULL + xpath
+                        172     LOAD_FAST                     10: can_use
+                        174     CALL_FUNCTION                 1
+                        176     CALL_FUNCTION                 2
+                        178     POP_TOP                       
+                        180     LOAD_FAST                     0: self
+                        182     LOAD_METHOD                   9: save
+                        184     LOAD_FAST                     10: can_use
+                        186     CALL_METHOD                   1
+                        188     POP_TOP                       
+                        190     POP_BLOCK                     
+                        192     LOAD_CONST                    0: None
+                        194     RETURN_VALUE                  
+                        196     DUP_TOP                       
+                        198     LOAD_GLOBAL                   10: append
+                        200     JUMP_IF_NOT_EXC_MATCH         243 (to 486)
+                        202     POP_TOP                       
+                        204     STORE_FAST                    11: e
+                        206     POP_TOP                       
+                        208     SETUP_FINALLY                 134 (to 478)
+                        210     LOAD_GLOBAL                   11: NULL + append
+                        212     LOAD_METHOD                   12: info
+                        214     LOAD_CONST                    10: '\xe6\x8a\x93\xe5\x8f\x96\xe5\xa4\xb1\xe8\xb4\xa5\xef\xbc\x8c\xe6\x9b\xb4\xe6\x8d\xa2\xe4\xbb\xa3\xe7\x90\x86\xe7\xbd\x91\xe7\xab\x99....'
+                        216     CALL_METHOD                   1
+                        218     POP_TOP                       
+                        220     BUILD_LIST                    0
+                        222     STORE_FAST                    1: proxies_list
+                        224     LOAD_GLOBAL                   11: NULL + append
+                        226     LOAD_METHOD                   12: info
+                        228     LOAD_CONST                    11: '\xe6\xad\xa3\xe5\x9c\xa8\xe6\x8a\x93\xe5\x8f\x96\xe4\xbb\xa3\xe7\x90\x86....'
+                        230     CALL_METHOD                   1
+                        232     POP_TOP                       
+                        234     LOAD_CONST                    12: 'https://www.baidu.com/'
+                        236     STORE_FAST                    12: url
+                        238     LOAD_CONST                    13: 'User-Agent'
+                        240     LOAD_CONST                    14: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36'
+                        242     BUILD_MAP                     1
+                        244     STORE_FAST                    13: headers
+                        246     LOAD_GLOBAL                   0: range
+                        248     LOAD_CONST                    1: 1
+                        250     LOAD_CONST                    2: 5
+                        252     CALL_FUNCTION                 2
+                        254     GET_ITER                      
+                        256     FOR_ITER                      79 (to 416)
+                        258     STORE_FAST                    14: i
+                        260     LOAD_GLOBAL                   13: NULL + print
+                        262     LOAD_ATTR                     14: get
+                        264     LOAD_CONST                    15: 'http://www.ip3366.net/free/?page='
+                        266     LOAD_FAST                     14: i
+                        268     FORMAT_VALUE                  0
+                        270     BUILD_STRING                  2
+                        272     LOAD_FAST                     13: headers
+                        274     LOAD_CONST                    16: False
+                        276     LOAD_CONST                    17: ('url', 'headers', 'verify')
+                        278     CALL_FUNCTION_KW              3
+                        280     STORE_FAST                    15: response
+                        282     LOAD_FAST                     15: response
+                        284     LOAD_ATTR                     15: text
+                        286     LOAD_METHOD                   16: encode
+                        288     LOAD_CONST                    18: 'ISO-8859-1'
+                        290     CALL_METHOD                   1
+                        292     STORE_FAST                    16: text
+                        294     LOAD_GLOBAL                   17: NULL + check_ip
+                        296     LOAD_METHOD                   18: HTML
+                        298     LOAD_FAST                     16: text
+                        300     CALL_METHOD                   1
+                        302     STORE_FAST                    17: html
+                        304     LOAD_FAST                     17: html
+                        306     LOAD_METHOD                   3: xpath
+                        308     LOAD_CONST                    19: '/html/body/div[2]/div/div[2]/table/tbody/tr'
+                        310     CALL_METHOD                   1
+                        312     STORE_FAST                    18: tr_list
+                        314     LOAD_FAST                     18: tr_list
+                        316     GET_ITER                      
+                        318     FOR_ITER                      38 (to 396)
+                        320     STORE_FAST                    19: td
+                        322     BUILD_MAP                     0
+                        324     STORE_FAST                    6: proxies_dict
+                        326     LOAD_FAST                     19: td
+                        328     LOAD_METHOD                   3: xpath
+                        330     LOAD_CONST                    3: './td[4]/text()'
+                        332     CALL_METHOD                   1
+                        334     LOAD_CONST                    20: 0
+                        336     BINARY_SUBSCR                 
+                        338     STORE_FAST                    7: http_type
+                        340     LOAD_FAST                     19: td
+                        342     LOAD_METHOD                   3: xpath
+                        344     LOAD_CONST                    4: './td[1]/text()'
+                        346     CALL_METHOD                   1
+                        348     LOAD_CONST                    20: 0
+                        350     BINARY_SUBSCR                 
+                        352     STORE_FAST                    20: ip_
+                        354     LOAD_FAST                     19: td
+                        356     LOAD_METHOD                   3: xpath
+                        358     LOAD_CONST                    5: './td[2]/text()'
+                        360     CALL_METHOD                   1
+                        362     LOAD_CONST                    20: 0
+                        364     BINARY_SUBSCR                 
+                        366     STORE_FAST                    21: port_
+                        368     LOAD_FAST                     20: ip_
+                        370     LOAD_CONST                    7: ':'
+                        372     BINARY_ADD                    
+                        374     LOAD_FAST                     21: port_
+                        376     BINARY_ADD                    
+                        378     LOAD_FAST                     6: proxies_dict
+                        380     LOAD_FAST                     7: http_type
+                        382     STORE_SUBSCR                  
+                        384     LOAD_FAST                     1: proxies_list
+                        386     LOAD_METHOD                   5: append
+                        388     LOAD_FAST                     6: proxies_dict
+                        390     CALL_METHOD                   1
+                        392     POP_TOP                       
+                        394     JUMP_ABSOLUTE                 159 (to 318)
+                        396     LOAD_GLOBAL                   19: NULL + save
+                        398     LOAD_METHOD                   20: sleep
+                        400     LOAD_GLOBAL                   21: NULL + Exception
+                        402     LOAD_METHOD                   22: randint
+                        404     LOAD_CONST                    2: 5
+                        406     LOAD_CONST                    21: 10
+                        408     CALL_METHOD                   2
+                        410     CALL_METHOD                   1
+                        412     POP_TOP                       
+                        414     JUMP_ABSOLUTE                 128 (to 256)
+                        416     LOAD_GLOBAL                   6: xpath
+                        418     LOAD_CONST                    8: '\xe8\x8e\xb7\xe5\x8f\x96\xe5\x88\xb0\xe7\x9a\x84\xe4\xbb\xa3\xe7\x90\x86IP\xe6\x95\xb0\xe9\x87\x8f\xef\xbc\x9a'
+                        420     LOAD_GLOBAL                   7: NULL + xpath
+                        422     LOAD_FAST                     1: proxies_list
+                        424     CALL_FUNCTION                 1
+                        426     CALL_FUNCTION                 2
+                        428     POP_TOP                       
+                        430     LOAD_FAST                     0: self
+                        432     LOAD_METHOD                   8: check_ip
+                        434     LOAD_FAST                     1: proxies_list
+                        436     CALL_METHOD                   1
+                        438     STORE_FAST                    10: can_use
+                        440     LOAD_GLOBAL                   6: xpath
+                        442     LOAD_CONST                    9: '\xe8\x83\xbd\xe7\x94\xa8\xe7\x9a\x84\xe4\xbb\xa3\xe7\x90\x86IP\xe6\x95\xb0\xe9\x87\x8f\xef\xbc\x9a'
+                        444     LOAD_GLOBAL                   7: NULL + xpath
+                        446     LOAD_FAST                     10: can_use
+                        448     CALL_FUNCTION                 1
+                        450     CALL_FUNCTION                 2
+                        452     POP_TOP                       
+                        454     LOAD_FAST                     0: self
+                        456     LOAD_METHOD                   9: save
+                        458     LOAD_FAST                     10: can_use
+                        460     CALL_METHOD                   1
+                        462     POP_TOP                       
+                        464     POP_BLOCK                     
+                        466     POP_EXCEPT                    
+                        468     LOAD_CONST                    0: None
+                        470     STORE_FAST                    11: e
+                        472     DELETE_FAST                   11: e
+                        474     LOAD_CONST                    0: None
+                        476     RETURN_VALUE                  
+                        478     LOAD_CONST                    0: None
+                        480     STORE_FAST                    11: e
+                        482     DELETE_FAST                   11: e
+                        484     RERAISE                       1
+                        486     RERAISE                       0
+                'daili.run'
+                None
+            [Disassembly]
+                0       LOAD_NAME                     0: __name__
+                2       STORE_NAME                    1: __module__
+                4       LOAD_CONST                    0: 'daili'
+                6       STORE_NAME                    2: __qualname__
+                8       LOAD_NAME                     3: urllib3
+                10      LOAD_METHOD                   4: disable_warnings
+                12      CALL_METHOD                   0
+                14      POP_TOP                       
+                16      LOAD_CONST                    1: <CODE> send_request
+                18      LOAD_CONST                    2: 'daili.send_request'
+                20      MAKE_FUNCTION                 0
+                22      STORE_NAME                    5: send_request
+                24      LOAD_CONST                    3: <CODE> parse_data
+                26      LOAD_CONST                    4: 'daili.parse_data'
+                28      MAKE_FUNCTION                 0
+                30      STORE_NAME                    6: parse_data
+                32      LOAD_CONST                    5: <CODE> check_ip
+                34      LOAD_CONST                    6: 'daili.check_ip'
+                36      MAKE_FUNCTION                 0
+                38      STORE_NAME                    7: check_ip
+                40      LOAD_CONST                    7: <CODE> save
+                42      LOAD_CONST                    8: 'daili.save'
+                44      MAKE_FUNCTION                 0
+                46      STORE_NAME                    8: save
+                48      LOAD_CONST                    9: <CODE> run
+                50      LOAD_CONST                    10: 'daili.run'
+                52      MAKE_FUNCTION                 0
+                54      STORE_NAME                    9: run
+                56      LOAD_CONST                    11: None
+                58      RETURN_VALUE                  
+        'daili'
+        'data_key'
+        [Code]
+            File Name: 爬取题目并启动.py
+            Object Name: check_date
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 6
+            Stack Size: 10
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'utils'
+                'data_decrypt'
+                'check_time'
+                'int'
+                'Exception'
+                'logger'
+                'info'
+                'format'
+                'repr'
+                'print'
+                'input'
+                'sys'
+                'exit'
+            [Var Names]
+                'data_key'
+                'plaintext'
+                'month'
+                'day'
+                'expire'
+                'e'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                0
+                1
+                2
+                3
+                4
+                5
+                2023
+                'exception,type={},content={}'
+                '\xe5\xaf\x86\xe9\x92\xa5\xe9\x94\x99\xe8\xaf\xaf\xef\xbc\x81\xef\xbc\x81'
+            [Disassembly]
+                0       SETUP_FINALLY                 45 (to 92)
+                2       LOAD_GLOBAL                   0: utils
+                4       LOAD_METHOD                   1: data_decrypt
+                6       LOAD_FAST                     0: data_key
+                8       CALL_METHOD                   1
+                10      STORE_FAST                    1: plaintext
+                12      LOAD_FAST                     1: plaintext
+                14      LOAD_CONST                    1: 0
+                16      BINARY_SUBSCR                 
+                18      LOAD_FAST                     1: plaintext
+                20      LOAD_CONST                    2: 1
+                22      BINARY_SUBSCR                 
+                24      BINARY_ADD                    
+                26      STORE_FAST                    2: month
+                28      LOAD_FAST                     1: plaintext
+                30      LOAD_CONST                    3: 2
+                32      BINARY_SUBSCR                 
+                34      LOAD_FAST                     1: plaintext
+                36      LOAD_CONST                    4: 3
+                38      BINARY_SUBSCR                 
+                40      BINARY_ADD                    
+                42      STORE_FAST                    3: day
+                44      LOAD_FAST                     1: plaintext
+                46      LOAD_CONST                    5: 4
+                48      BINARY_SUBSCR                 
+                50      LOAD_FAST                     1: plaintext
+                52      LOAD_CONST                    6: 5
+                54      BINARY_SUBSCR                 
+                56      BINARY_ADD                    
+                58      STORE_FAST                    4: expire
+                60      LOAD_GLOBAL                   2: data_decrypt
+                62      LOAD_CONST                    7: 2023
+                64      LOAD_GLOBAL                   3: NULL + data_decrypt
+                66      LOAD_FAST                     2: month
+                68      CALL_FUNCTION                 1
+                70      LOAD_GLOBAL                   3: NULL + data_decrypt
+                72      LOAD_FAST                     3: day
+                74      CALL_FUNCTION                 1
+                76      LOAD_GLOBAL                   3: NULL + data_decrypt
+                78      LOAD_FAST                     4: expire
+                80      CALL_FUNCTION                 1
+                82      CALL_FUNCTION                 4
+                84      POP_TOP                       
+                86      POP_BLOCK                     
+                88      LOAD_CONST                    0: None
+                90      RETURN_VALUE                  
+                92      DUP_TOP                       
+                94      LOAD_GLOBAL                   4: check_time
+                96      JUMP_IF_NOT_EXC_MATCH         86 (to 172)
+                98      POP_TOP                       
+                100     STORE_FAST                    5: e
+                102     POP_TOP                       
+                104     SETUP_FINALLY                 29 (to 164)
+                106     LOAD_GLOBAL                   5: NULL + check_time
+                108     LOAD_METHOD                   6: info
+                110     LOAD_CONST                    8: 'exception,type={},content={}'
+                112     LOAD_METHOD                   7: format
+                114     LOAD_GLOBAL                   8: Exception
+                116     LOAD_FAST                     5: e
+                118     CALL_FUNCTION                 1
+                120     LOAD_FAST                     5: e
+                122     CALL_METHOD                   2
+                124     CALL_METHOD                   1
+                126     POP_TOP                       
+                128     LOAD_GLOBAL                   9: NULL + Exception
+                130     LOAD_CONST                    9: '\xe5\xaf\x86\xe9\x92\xa5\xe9\x94\x99\xe8\xaf\xaf\xef\xbc\x81\xef\xbc\x81'
+                132     CALL_FUNCTION                 1
+                134     POP_TOP                       
+                136     LOAD_GLOBAL                   10: logger
+                138     CALL_FUNCTION                 0
+                140     POP_TOP                       
+                142     LOAD_GLOBAL                   11: NULL + logger
+                144     LOAD_METHOD                   12: exit
+                146     CALL_METHOD                   0
+                148     POP_TOP                       
+                150     POP_BLOCK                     
+                152     POP_EXCEPT                    
+                154     LOAD_CONST                    0: None
+                156     STORE_FAST                    5: e
+                158     DELETE_FAST                   5: e
+                160     LOAD_CONST                    0: None
+                162     RETURN_VALUE                  
+                164     LOAD_CONST                    0: None
+                166     STORE_FAST                    5: e
+                168     DELETE_FAST                   5: e
+                170     RERAISE                       1
+                172     RERAISE                       0
+        'check_date'
+        [Code]
+            File Name: 爬取题目并启动.py
+            Object Name: check_time
+            Arg Count: 4
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 10
+            Stack Size: 10
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'requests'
+                'get'
+                'datetime'
+                'strptime'
+                'headers'
+                'days'
+                'print'
+                'input'
+                'sys'
+                'exit'
+                'Exception'
+                'logger'
+                'info'
+                'format'
+                'repr'
+            [Var Names]
+                'y'
+                'm'
+                'd'
+                'expire'
+                'url'
+                'r'
+                'server_time'
+                'given_time'
+                'delta'
+                'e'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                0
+                'http://www.ntsc.ac.cn'
+                'date'
+                '%a, %d %b %Y %H:%M:%S %Z'
+                '\xe8\x84\x9a\xe6\x9c\xac\xe5\xb7\xb2\xe8\xbf\x87\xe6\x9c\x9f\xe8\xaf\xb7\xe7\xbb\xad\xe8\xb4\xb9\xef\xbc\x81'
+                '\xe8\xb7\x9d\xe7\xa6\xbb\xe8\x84\x9a\xe6\x9c\xac\xe8\xbf\x87\xe6\x9c\x9f\xe8\xbf\x98\xe6\x9c\x89'
+                '\xe5\xa4\xa9'
+                'exception,type={},content={}'
+                '\xe8\x8e\xb7\xe5\x8f\x96\xe6\x97\xb6\xe9\x97\xb4\xe5\xa4\xb1\xe8\xb4\xa5\xef\xbc\x81'
+            [Disassembly]
+                0       LOAD_FAST                     3: expire
+                2       LOAD_CONST                    1: 0
+                4       COMPARE_OP                    2 (==)
+                6       POP_JUMP_IF_FALSE             6 (to 12)
+                8       LOAD_CONST                    0: None
+                10      RETURN_VALUE                  
+                12      SETUP_FINALLY                 61 (to 136)
+                14      LOAD_CONST                    2: 'http://www.ntsc.ac.cn'
+                16      STORE_FAST                    4: url
+                18      LOAD_GLOBAL                   0: requests
+                20      LOAD_METHOD                   1: get
+                22      LOAD_FAST                     4: url
+                24      CALL_METHOD                   1
+                26      STORE_FAST                    5: r
+                28      LOAD_GLOBAL                   2: get
+                30      LOAD_ATTR                     2: datetime
+                32      LOAD_METHOD                   3: strptime
+                34      LOAD_FAST                     5: r
+                36      LOAD_ATTR                     4: headers
+                38      LOAD_CONST                    3: 'date'
+                40      BINARY_SUBSCR                 
+                42      LOAD_CONST                    4: '%a, %d %b %Y %H:%M:%S %Z'
+                44      CALL_METHOD                   2
+                46      STORE_FAST                    6: server_time
+                48      LOAD_GLOBAL                   2: get
+                50      LOAD_METHOD                   2: datetime
+                52      LOAD_FAST                     0: y
+                54      LOAD_FAST                     1: m
+                56      LOAD_FAST                     2: d
+                58      CALL_METHOD                   3
+                60      STORE_FAST                    7: given_time
+                62      LOAD_FAST                     6: server_time
+                64      LOAD_FAST                     7: given_time
+                66      BINARY_SUBTRACT               
+                68      STORE_FAST                    8: delta
+                70      LOAD_FAST                     8: delta
+                72      LOAD_ATTR                     5: days
+                74      LOAD_FAST                     3: expire
+                76      COMPARE_OP                    4 (>)
+                78      POP_JUMP_IF_FALSE             54 (to 108)
+                80      LOAD_GLOBAL                   6: strptime
+                82      LOAD_CONST                    5: '\xe8\x84\x9a\xe6\x9c\xac\xe5\xb7\xb2\xe8\xbf\x87\xe6\x9c\x9f\xe8\xaf\xb7\xe7\xbb\xad\xe8\xb4\xb9\xef\xbc\x81'
+                84      CALL_FUNCTION                 1
+                86      POP_TOP                       
+                88      LOAD_GLOBAL                   7: NULL + strptime
+                90      CALL_FUNCTION                 0
+                92      POP_TOP                       
+                94      LOAD_GLOBAL                   8: headers
+                96      LOAD_METHOD                   9: exit
+                98      CALL_METHOD                   0
+                100     POP_TOP                       
+                102     POP_BLOCK                     
+                104     LOAD_CONST                    0: None
+                106     RETURN_VALUE                  
+                108     LOAD_GLOBAL                   6: strptime
+                110     LOAD_CONST                    6: '\xe8\xb7\x9d\xe7\xa6\xbb\xe8\x84\x9a\xe6\x9c\xac\xe8\xbf\x87\xe6\x9c\x9f\xe8\xbf\x98\xe6\x9c\x89'
+                112     LOAD_FAST                     3: expire
+                114     LOAD_FAST                     8: delta
+                116     LOAD_ATTR                     5: days
+                118     BINARY_SUBTRACT               
+                120     FORMAT_VALUE                  0
+                122     LOAD_CONST                    7: '\xe5\xa4\xa9'
+                124     BUILD_STRING                  3
+                126     CALL_FUNCTION                 1
+                128     POP_TOP                       
+                130     POP_BLOCK                     
+                132     LOAD_CONST                    0: None
+                134     RETURN_VALUE                  
+                136     DUP_TOP                       
+                138     LOAD_GLOBAL                   10: days
+                140     JUMP_IF_NOT_EXC_MATCH         108 (to 216)
+                142     POP_TOP                       
+                144     STORE_FAST                    9: e
+                146     POP_TOP                       
+                148     SETUP_FINALLY                 29 (to 208)
+                150     LOAD_GLOBAL                   11: NULL + days
+                152     LOAD_METHOD                   12: info
+                154     LOAD_CONST                    8: 'exception,type={},content={}'
+                156     LOAD_METHOD                   13: format
+                158     LOAD_GLOBAL                   14: input
+                160     LOAD_FAST                     9: e
+                162     CALL_FUNCTION                 1
+                164     LOAD_FAST                     9: e
+                166     CALL_METHOD                   2
+                168     CALL_METHOD                   1
+                170     POP_TOP                       
+                172     LOAD_GLOBAL                   6: strptime
+                174     LOAD_CONST                    9: '\xe8\x8e\xb7\xe5\x8f\x96\xe6\x97\xb6\xe9\x97\xb4\xe5\xa4\xb1\xe8\xb4\xa5\xef\xbc\x81'
+                176     CALL_FUNCTION                 1
+                178     POP_TOP                       
+                180     LOAD_GLOBAL                   7: NULL + strptime
+                182     CALL_FUNCTION                 0
+                184     POP_TOP                       
+                186     LOAD_GLOBAL                   8: headers
+                188     LOAD_METHOD                   9: exit
+                190     CALL_METHOD                   0
+                192     POP_TOP                       
+                194     POP_BLOCK                     
+                196     POP_EXCEPT                    
+                198     LOAD_CONST                    0: None
+                200     STORE_FAST                    9: e
+                202     DELETE_FAST                   9: e
+                204     LOAD_CONST                    0: None
+                206     RETURN_VALUE                  
+                208     LOAD_CONST                    0: None
+                210     STORE_FAST                    9: e
+                212     DELETE_FAST                   9: e
+                214     RERAISE                       1
+                216     RERAISE                       0
+        'check_time'
+        [Code]
+            File Name: 爬取题目并启动.py
+            Object Name: check_pc
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 5
+            Stack Size: 9
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'utils'
+                'get_cpu_serial'
+                'encrypt'
+                'str'
+                'os'
+                'path'
+                'exists'
+                'print'
+                'input'
+                'strip'
+                'check_date'
+                'open'
+                'write'
+                'sys'
+                'exit'
+                'readline'
+            [Var Names]
+                'machine_code'
+                'secret_key'
+                'enter'
+                'f'
+                'line'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                '01'
+                '02'
+                '23'
+                'conf/secret.txt'
+                '\xe4\xbd\xa0\xe7\x9a\x84\xe8\xaf\x86\xe5\x88\xab\xe7\xa0\x81\xe6\x98\xaf\xef\xbc\x9a'
+                '\xe8\xaf\xb7\xe5\xb0\x86\xe8\xaf\x86\xe5\x88\xab\xe7\xa0\x81\xe5\x8f\x91\xe7\xbb\x99\xe7\xae\xa1\xe7\x90\x86\xe5\x91\x98\xe7\xb4\xa2\xe8\xa6\x81\xe5\xaf\x86\xe9\x92\xa5,\xe4\xb8\x8d\xe8\xa6\x81\xe5\xb0\x9d\xe8\xaf\x95\xe5\x9c\xa8\xe5\x85\xb6\xe4\xbb\x96\xe7\x94\xb5\xe8\x84\x91\xe4\xb8\x8a\xe7\x99\xbb\xe5\xbd\x95\xe8\x84\x9a\xe6\x9c\xac\n\xe8\xaf\xb7\xe8\xbe\x93\xe5\x85\xa5\xe7\xae\xa1\xe7\x90\x86\xe5\x91\x98\xe7\xbb\x99\xe4\xbd\xa0\xe7\x9a\x84\xe5\xaf\x86\xe9\x92\xa5: '
+                32
+                'w'
+                'utf8'
+                (
+                    'encoding'
+                )
+                '\xe5\xaf\x86\xe9\x92\xa5\xe9\x94\x99\xe8\xaf\xaf\xef\xbc\x81'
+                'r'
+                '\xe5\xaf\x86\xe9\x92\xa5\xe9\x94\x99\xe8\xaf\xaf\xef\xbc\x81\xe4\xb8\x8d\xe8\xa6\x81\xe5\xb0\x9d\xe8\xaf\x95\xe5\x9c\xa8\xe5\x85\xb6\xe4\xbb\x96\xe7\x94\xb5\xe8\x84\x91\xe4\xb8\x8a\xe7\x99\xbb\xe5\xbd\x95\xe8\x84\x9a\xe6\x9c\xac'
+                '\xe8\xaf\xb7\xe5\xb0\x86\xe8\xaf\x86\xe5\x88\xab\xe7\xa0\x81\xe5\x8f\x91\xe7\xbb\x99\xe7\xae\xa1\xe7\x90\x86\xe5\x91\x98\xe7\xb4\xa2\xe8\xa6\x81\xe5\xaf\x86\xe9\x92\xa5\n\xe8\xaf\xb7\xe8\xbe\x93\xe5\x85\xa5\xe7\xae\xa1\xe7\x90\x86\xe5\x91\x98\xe7\xbb\x99\xe4\xbd\xa0\xe7\x9a\x84\xe5\xaf\x86\xe9\x92\xa5: '
+            [Disassembly]
+                0       LOAD_GLOBAL                   0: utils
+                2       LOAD_METHOD                   1: get_cpu_serial
+                4       CALL_METHOD                   0
+                6       STORE_FAST                    0: machine_code
+                8       LOAD_GLOBAL                   0: utils
+                10      LOAD_METHOD                   2: encrypt
+                12      LOAD_GLOBAL                   3: NULL + get_cpu_serial
+                14      LOAD_FAST                     0: machine_code
+                16      CALL_FUNCTION                 1
+                18      LOAD_CONST                    1: '01'
+                20      LOAD_CONST                    2: '02'
+                22      LOAD_CONST                    3: '23'
+                24      CALL_METHOD                   4
+                26      STORE_FAST                    1: secret_key
+                28      LOAD_GLOBAL                   4: encrypt
+                30      LOAD_ATTR                     5: path
+                32      LOAD_METHOD                   6: exists
+                34      LOAD_CONST                    4: 'conf/secret.txt'
+                36      CALL_METHOD                   1
+                38      POP_JUMP_IF_TRUE              99 (to 198)
+                40      LOAD_GLOBAL                   7: NULL + str
+                42      LOAD_CONST                    5: '\xe4\xbd\xa0\xe7\x9a\x84\xe8\xaf\x86\xe5\x88\xab\xe7\xa0\x81\xe6\x98\xaf\xef\xbc\x9a'
+                44      LOAD_FAST                     0: machine_code
+                46      CALL_FUNCTION                 2
+                48      POP_TOP                       
+                50      LOAD_GLOBAL                   8: os
+                52      LOAD_CONST                    6: '\xe8\xaf\xb7\xe5\xb0\x86\xe8\xaf\x86\xe5\x88\xab\xe7\xa0\x81\xe5\x8f\x91\xe7\xbb\x99\xe7\xae\xa1\xe7\x90\x86\xe5\x91\x98\xe7\xb4\xa2\xe8\xa6\x81\xe5\xaf\x86\xe9\x92\xa5,\xe4\xb8\x8d\xe8\xa6\x81\xe5\xb0\x9d\xe8\xaf\x95\xe5\x9c\xa8\xe5\x85\xb6\xe4\xbb\x96\xe7\x94\xb5\xe8\x84\x91\xe4\xb8\x8a\xe7\x99\xbb\xe5\xbd\x95\xe8\x84\x9a\xe6\x9c\xac\n\xe8\xaf\xb7\xe8\xbe\x93\xe5\x85\xa5\xe7\xae\xa1\xe7\x90\x86\xe5\x91\x98\xe7\xbb\x99\xe4\xbd\xa0\xe7\x9a\x84\xe5\xaf\x86\xe9\x92\xa5: '
+                54      CALL_FUNCTION                 1
+                56      STORE_FAST                    2: enter
+                58      LOAD_FAST                     2: enter
+                60      LOAD_METHOD                   9: strip
+                62      CALL_METHOD                   0
+                64      LOAD_CONST                    0: None
+                66      LOAD_CONST                    7: 32
+                68      BUILD_SLICE                   2
+                70      BINARY_SUBSCR                 
+                72      LOAD_FAST                     1: secret_key
+                74      LOAD_CONST                    0: None
+                76      LOAD_CONST                    7: 32
+                78      BUILD_SLICE                   2
+                80      BINARY_SUBSCR                 
+                82      COMPARE_OP                    2 (==)
+                84      POP_JUMP_IF_FALSE             86 (to 172)
+                86      LOAD_GLOBAL                   10: path
+                88      LOAD_FAST                     2: enter
+                90      LOAD_METHOD                   9: strip
+                92      CALL_METHOD                   0
+                94      LOAD_CONST                    7: 32
+                96      LOAD_CONST                    0: None
+                98      BUILD_SLICE                   2
+                100     BINARY_SUBSCR                 
+                102     CALL_FUNCTION                 1
+                104     POP_TOP                       
+                106     LOAD_GLOBAL                   11: NULL + path
+                108     LOAD_CONST                    4: 'conf/secret.txt'
+                110     LOAD_CONST                    8: 'w'
+                112     LOAD_CONST                    9: 'utf8'
+                114     LOAD_CONST                    10: ('encoding',)
+                116     CALL_FUNCTION_KW              3
+                118     SETUP_WITH                    16
+                120     STORE_FAST                    3: f
+                122     LOAD_FAST                     3: f
+                124     LOAD_METHOD                   12: write
+                126     LOAD_FAST                     2: enter
+                128     LOAD_METHOD                   9: strip
+                130     CALL_METHOD                   0
+                132     CALL_METHOD                   1
+                134     POP_TOP                       
+                136     POP_BLOCK                     
+                138     LOAD_CONST                    0: None
+                140     DUP_TOP                       
+                142     DUP_TOP                       
+                144     CALL_FUNCTION                 3
+                146     POP_TOP                       
+                148     LOAD_CONST                    0: None
+                150     RETURN_VALUE                  
+                152     WITH_EXCEPT_START             
+                154     POP_JUMP_IF_TRUE              79 (to 158)
+                156     RERAISE                       1
+                158     POP_TOP                       
+                160     POP_TOP                       
+                162     POP_TOP                       
+                164     POP_EXCEPT                    
+                166     POP_TOP                       
+                168     LOAD_CONST                    0: None
+                170     RETURN_VALUE                  
+                172     LOAD_GLOBAL                   7: NULL + str
+                174     LOAD_CONST                    11: '\xe5\xaf\x86\xe9\x92\xa5\xe9\x94\x99\xe8\xaf\xaf\xef\xbc\x81'
+                176     CALL_FUNCTION                 1
+                178     POP_TOP                       
+                180     LOAD_GLOBAL                   8: os
+                182     CALL_FUNCTION                 0
+                184     POP_TOP                       
+                186     LOAD_GLOBAL                   13: NULL + exists
+                188     LOAD_METHOD                   14: exit
+                190     CALL_METHOD                   0
+                192     POP_TOP                       
+                194     LOAD_CONST                    0: None
+                196     RETURN_VALUE                  
+                198     LOAD_GLOBAL                   11: NULL + path
+                200     LOAD_CONST                    4: 'conf/secret.txt'
+                202     LOAD_CONST                    12: 'r'
+                204     LOAD_CONST                    9: 'utf8'
+                206     LOAD_CONST                    10: ('encoding',)
+                208     CALL_FUNCTION_KW              3
+                210     SETUP_WITH                    133
+                212     STORE_FAST                    3: f
+                214     LOAD_FAST                     3: f
+                216     LOAD_METHOD                   15: readline
+                218     CALL_METHOD                   0
+                220     STORE_FAST                    4: line
+                222     LOAD_FAST                     4: line
+                224     LOAD_METHOD                   9: strip
+                226     CALL_METHOD                   0
+                228     LOAD_CONST                    0: None
+                230     LOAD_CONST                    7: 32
+                232     BUILD_SLICE                   2
+                234     BINARY_SUBSCR                 
+                236     LOAD_FAST                     1: secret_key
+                238     LOAD_CONST                    0: None
+                240     LOAD_CONST                    7: 32
+                242     BUILD_SLICE                   2
+                244     BINARY_SUBSCR                 
+                246     COMPARE_OP                    2 (==)
+                248     POP_JUMP_IF_FALSE             144 (to 288)
+                250     LOAD_GLOBAL                   10: path
+                252     LOAD_FAST                     4: line
+                254     LOAD_METHOD                   9: strip
+                256     CALL_METHOD                   0
+                258     LOAD_CONST                    7: 32
+                260     LOAD_CONST                    0: None
+                262     BUILD_SLICE                   2
+                264     BINARY_SUBSCR                 
+                266     CALL_FUNCTION                 1
+                268     POP_TOP                       
+                270     NOP                           
+                272     POP_BLOCK                     
+                274     LOAD_CONST                    0: None
+                276     DUP_TOP                       
+                278     DUP_TOP                       
+                280     CALL_FUNCTION                 3
+                282     POP_TOP                       
+                284     LOAD_CONST                    0: None
+                286     RETURN_VALUE                  
+                288     LOAD_GLOBAL                   7: NULL + str
+                290     LOAD_CONST                    13: '\xe5\xaf\x86\xe9\x92\xa5\xe9\x94\x99\xe8\xaf\xaf\xef\xbc\x81\xe4\xb8\x8d\xe8\xa6\x81\xe5\xb0\x9d\xe8\xaf\x95\xe5\x9c\xa8\xe5\x85\xb6\xe4\xbb\x96\xe7\x94\xb5\xe8\x84\x91\xe4\xb8\x8a\xe7\x99\xbb\xe5\xbd\x95\xe8\x84\x9a\xe6\x9c\xac'
+                292     CALL_FUNCTION                 1
+                294     POP_TOP                       
+                296     LOAD_GLOBAL                   7: NULL + str
+                298     LOAD_CONST                    5: '\xe4\xbd\xa0\xe7\x9a\x84\xe8\xaf\x86\xe5\x88\xab\xe7\xa0\x81\xe6\x98\xaf\xef\xbc\x9a'
+                300     LOAD_FAST                     0: machine_code
+                302     CALL_FUNCTION                 2
+                304     POP_TOP                       
+                306     LOAD_GLOBAL                   8: os
+                308     LOAD_CONST                    14: '\xe8\xaf\xb7\xe5\xb0\x86\xe8\xaf\x86\xe5\x88\xab\xe7\xa0\x81\xe5\x8f\x91\xe7\xbb\x99\xe7\xae\xa1\xe7\x90\x86\xe5\x91\x98\xe7\xb4\xa2\xe8\xa6\x81\xe5\xaf\x86\xe9\x92\xa5\n\xe8\xaf\xb7\xe8\xbe\x93\xe5\x85\xa5\xe7\xae\xa1\xe7\x90\x86\xe5\x91\x98\xe7\xbb\x99\xe4\xbd\xa0\xe7\x9a\x84\xe5\xaf\x86\xe9\x92\xa5: '
+                310     CALL_FUNCTION                 1
+                312     STORE_FAST                    2: enter
+                314     LOAD_FAST                     2: enter
+                316     LOAD_METHOD                   9: strip
+                318     CALL_METHOD                   0
+                320     LOAD_CONST                    0: None
+                322     LOAD_CONST                    7: 32
+                324     BUILD_SLICE                   2
+                326     BINARY_SUBSCR                 
+                328     LOAD_FAST                     1: secret_key
+                330     LOAD_CONST                    0: None
+                332     LOAD_CONST                    7: 32
+                334     BUILD_SLICE                   2
+                336     BINARY_SUBSCR                 
+                338     COMPARE_OP                    2 (==)
+                340     POP_JUMP_IF_FALSE             220 (to 440)
+                342     LOAD_GLOBAL                   10: path
+                344     LOAD_FAST                     2: enter
+                346     LOAD_METHOD                   9: strip
+                348     CALL_METHOD                   0
+                350     LOAD_CONST                    7: 32
+                352     LOAD_CONST                    0: None
+                354     BUILD_SLICE                   2
+                356     BINARY_SUBSCR                 
+                358     CALL_FUNCTION                 1
+                360     POP_TOP                       
+                362     LOAD_GLOBAL                   11: NULL + path
+                364     LOAD_CONST                    4: 'conf/secret.txt'
+                366     LOAD_CONST                    8: 'w'
+                368     LOAD_CONST                    9: 'utf8'
+                370     LOAD_CONST                    10: ('encoding',)
+                372     CALL_FUNCTION_KW              3
+                374     SETUP_WITH                    15
+                376     STORE_FAST                    3: f
+                378     LOAD_FAST                     3: f
+                380     LOAD_METHOD                   12: write
+                382     LOAD_FAST                     2: enter
+                384     LOAD_METHOD                   9: strip
+                386     CALL_METHOD                   0
+                388     CALL_METHOD                   1
+                390     POP_TOP                       
+                392     POP_BLOCK                     
+                394     LOAD_CONST                    0: None
+                396     DUP_TOP                       
+                398     DUP_TOP                       
+                400     CALL_FUNCTION                 3
+                402     POP_TOP                       
+                404     JUMP_FORWARD                  8 (to 422)
+                406     WITH_EXCEPT_START             
+                408     POP_JUMP_IF_TRUE              206 (to 412)
+                410     RERAISE                       1
+                412     POP_TOP                       
+                414     POP_TOP                       
+                416     POP_TOP                       
+                418     POP_EXCEPT                    
+                420     POP_TOP                       
+                422     NOP                           
+                424     POP_BLOCK                     
+                426     LOAD_CONST                    0: None
+                428     DUP_TOP                       
+                430     DUP_TOP                       
+                432     CALL_FUNCTION                 3
+                434     POP_TOP                       
+                436     LOAD_CONST                    0: None
+                438     RETURN_VALUE                  
+                440     LOAD_GLOBAL                   7: NULL + str
+                442     LOAD_CONST                    11: '\xe5\xaf\x86\xe9\x92\xa5\xe9\x94\x99\xe8\xaf\xaf\xef\xbc\x81'
+                444     CALL_FUNCTION                 1
+                446     POP_TOP                       
+                448     LOAD_GLOBAL                   8: os
+                450     CALL_FUNCTION                 0
+                452     POP_TOP                       
+                454     LOAD_GLOBAL                   13: NULL + exists
+                456     LOAD_METHOD                   14: exit
+                458     CALL_METHOD                   0
+                460     POP_TOP                       
+                462     POP_BLOCK                     
+                464     LOAD_CONST                    0: None
+                466     DUP_TOP                       
+                468     DUP_TOP                       
+                470     CALL_FUNCTION                 3
+                472     POP_TOP                       
+                474     LOAD_CONST                    0: None
+                476     RETURN_VALUE                  
+                478     WITH_EXCEPT_START             
+                480     POP_JUMP_IF_TRUE              242 (to 484)
+                482     RERAISE                       1
+                484     POP_TOP                       
+                486     POP_TOP                       
+                488     POP_TOP                       
+                490     POP_EXCEPT                    
+                492     POP_TOP                       
+                494     LOAD_CONST                    0: None
+                496     RETURN_VALUE                  
+        'check_pc'
+        [Code]
+            File Name: 爬取题目并启动.py
+            Object Name: check_double_exe
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 9
+            Stack Size: 6
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'os'
+                'path'
+                'basename'
+                'sys'
+                'argv'
+                'print'
+                'time'
+                'sleep'
+                'exit'
+                'psutil'
+                'pids'
+                'Process'
+                'append'
+                'name'
+                'str'
+                'getpid'
+                'system'
+            [Var Names]
+                'program_name'
+                'pids'
+                'list'
+                'i'
+                'pid'
+                'p'
+                's'
+                'pidd'
+                'cmd'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                0
+                '\xe7\x88\xac\xe5\x8f\x96\xe9\xa2\x98\xe7\x9b\xae\xe5\xb9\xb6\xe5\x90\xaf\xe5\x8a\xa8.exe'
+                '\xe7\x88\xac\xe5\x8f\x96\xe9\xa2\x98\xe7\x9b\xae\xe5\xb9\xb6\xe5\x90\xaf\xe5\x8a\xa8.py'
+                '\xe8\xaf\xb7\xe4\xb8\x8d\xe8\xa6\x81\xe6\x9b\xb4\xe6\x8d\xa2\xe7\xa8\x8b\xe5\xba\x8f\xe5\x90\x8d'
+                5
+                1
+                2
+                '\xe7\xa8\x8b\xe5\xba\x8f\xe4\xb8\x8d\xe8\x83\xbd\xe5\xa4\x9a\xe5\xbc\x80!'
+                'taskkill /pid '
+                ' /f'
+            [Disassembly]
+                0       LOAD_GLOBAL                   0: os
+                2       LOAD_ATTR                     1: path
+                4       LOAD_METHOD                   2: basename
+                6       LOAD_GLOBAL                   3: NULL + path
+                8       LOAD_ATTR                     4: argv
+                10      LOAD_CONST                    1: 0
+                12      BINARY_SUBSCR                 
+                14      CALL_METHOD                   1
+                16      STORE_FAST                    0: program_name
+                18      LOAD_FAST                     0: program_name
+                20      LOAD_CONST                    2: '\xe7\x88\xac\xe5\x8f\x96\xe9\xa2\x98\xe7\x9b\xae\xe5\xb9\xb6\xe5\x90\xaf\xe5\x8a\xa8.exe'
+                22      COMPARE_OP                    3 (!=)
+                24      POP_JUMP_IF_FALSE             30 (to 60)
+                26      LOAD_FAST                     0: program_name
+                28      LOAD_CONST                    3: '\xe7\x88\xac\xe5\x8f\x96\xe9\xa2\x98\xe7\x9b\xae\xe5\xb9\xb6\xe5\x90\xaf\xe5\x8a\xa8.py'
+                30      COMPARE_OP                    3 (!=)
+                32      POP_JUMP_IF_FALSE             30 (to 60)
+                34      LOAD_GLOBAL                   5: NULL + basename
+                36      LOAD_CONST                    4: '\xe8\xaf\xb7\xe4\xb8\x8d\xe8\xa6\x81\xe6\x9b\xb4\xe6\x8d\xa2\xe7\xa8\x8b\xe5\xba\x8f\xe5\x90\x8d'
+                38      CALL_FUNCTION                 1
+                40      POP_TOP                       
+                42      LOAD_GLOBAL                   6: sys
+                44      LOAD_METHOD                   7: sleep
+                46      LOAD_CONST                    5: 5
+                48      CALL_METHOD                   1
+                50      POP_TOP                       
+                52      LOAD_GLOBAL                   3: NULL + path
+                54      LOAD_METHOD                   8: exit
+                56      CALL_METHOD                   0
+                58      POP_TOP                       
+                60      LOAD_GLOBAL                   9: NULL + argv
+                62      LOAD_METHOD                   10: pids
+                64      CALL_METHOD                   0
+                66      STORE_FAST                    1: pids
+                68      BUILD_LIST                    0
+                70      STORE_FAST                    2: list
+                72      LOAD_CONST                    1: 0
+                74      STORE_FAST                    3: i
+                76      LOAD_FAST                     1: pids
+                78      GET_ITER                      
+                80      FOR_ITER                      28 (to 138)
+                82      STORE_FAST                    4: pid
+                84      LOAD_GLOBAL                   9: NULL + argv
+                86      LOAD_METHOD                   11: Process
+                88      LOAD_FAST                     4: pid
+                90      CALL_METHOD                   1
+                92      STORE_FAST                    5: p
+                94      LOAD_FAST                     2: list
+                96      LOAD_METHOD                   12: append
+                98      LOAD_FAST                     5: p
+                100     LOAD_METHOD                   13: name
+                102     CALL_METHOD                   0
+                104     CALL_METHOD                   1
+                106     POP_TOP                       
+                108     LOAD_GLOBAL                   14: sleep
+                110     LOAD_FAST                     5: p
+                112     LOAD_METHOD                   13: name
+                114     CALL_METHOD                   0
+                116     CALL_FUNCTION                 1
+                118     STORE_FAST                    6: s
+                120     LOAD_FAST                     6: s
+                122     LOAD_CONST                    2: '\xe7\x88\xac\xe5\x8f\x96\xe9\xa2\x98\xe7\x9b\xae\xe5\xb9\xb6\xe5\x90\xaf\xe5\x8a\xa8.exe'
+                124     COMPARE_OP                    2 (==)
+                126     POP_JUMP_IF_FALSE             68 (to 136)
+                128     LOAD_FAST                     3: i
+                130     LOAD_CONST                    6: 1
+                132     INPLACE_ADD                   
+                134     STORE_FAST                    3: i
+                136     JUMP_ABSOLUTE                 40 (to 80)
+                138     LOAD_FAST                     3: i
+                140     LOAD_CONST                    7: 2
+                142     COMPARE_OP                    2 (==)
+                144     POP_JUMP_IF_FALSE             75 (to 150)
+                146     LOAD_CONST                    0: None
+                148     RETURN_VALUE                  
+                150     LOAD_FAST                     3: i
+                152     LOAD_CONST                    7: 2
+                154     COMPARE_OP                    4 (>)
+                156     POP_JUMP_IF_FALSE             122 (to 244)
+                158     LOAD_GLOBAL                   5: NULL + basename
+                160     LOAD_CONST                    8: '\xe7\xa8\x8b\xe5\xba\x8f\xe4\xb8\x8d\xe8\x83\xbd\xe5\xa4\x9a\xe5\xbc\x80!'
+                162     CALL_FUNCTION                 1
+                164     POP_TOP                       
+                166     LOAD_GLOBAL                   6: sys
+                168     LOAD_METHOD                   7: sleep
+                170     LOAD_CONST                    5: 5
+                172     CALL_METHOD                   1
+                174     POP_TOP                       
+                176     LOAD_GLOBAL                   0: os
+                178     LOAD_METHOD                   15: getpid
+                180     CALL_METHOD                   0
+                182     STORE_FAST                    7: pidd
+                184     LOAD_CONST                    9: 'taskkill /pid '
+                186     LOAD_GLOBAL                   14: sleep
+                188     LOAD_FAST                     7: pidd
+                190     CALL_FUNCTION                 1
+                192     BINARY_ADD                    
+                194     LOAD_CONST                    10: ' /f'
+                196     BINARY_ADD                    
+                198     STORE_FAST                    8: cmd
+                200     SETUP_FINALLY                 7 (to 216)
+                202     LOAD_GLOBAL                   0: os
+                204     LOAD_METHOD                   16: system
+                206     LOAD_FAST                     8: cmd
+                208     CALL_METHOD                   1
+                210     POP_TOP                       
+                212     POP_BLOCK                     
+                214     JUMP_FORWARD                  8 (to 232)
+                216     POP_TOP                       
+                218     POP_TOP                       
+                220     POP_TOP                       
+                222     LOAD_GLOBAL                   3: NULL + path
+                224     LOAD_METHOD                   8: exit
+                226     CALL_METHOD                   0
+                228     POP_TOP                       
+                230     POP_EXCEPT                    
+                232     LOAD_GLOBAL                   3: NULL + path
+                234     LOAD_METHOD                   8: exit
+                236     CALL_METHOD                   0
+                238     POP_TOP                       
+                240     LOAD_CONST                    0: None
+                242     RETURN_VALUE                  
+                244     LOAD_CONST                    0: None
+                246     RETURN_VALUE                  
+        'check_double_exe'
+        [Code]
+            File Name: 爬取题目并启动.py
+            Object Name: count_submited
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 7
+            Stack Size: 10
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'delete'
+                'time'
+                'strftime'
+                'os'
+                'listdir'
+                'path'
+                'exists'
+                'insert'
+                'tk'
+                'END'
+                'format'
+                'len'
+            [Var Names]
+                'list1'
+                'today'
+                'users'
+                'user'
+                'folders'
+                'folder'
+                'submited'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                0
+                'end'
+                '%Y-%m-%d'
+                'output/articles'
+                '\xe8\xa2\xab\xe6\x8a\xa2\xe5\x85\x88'
+                'output/articles/'
+                '/'
+                '-\xe5\xb7\xb2\xe6\x8f\x90\xe4\xba\xa4'
+                '{}\t\xe4\xbb\x8a\xe5\xa4\xa9\xe5\x85\xb1\xe6\x8f\x90\xe4\xba\xa4\xe4\xba\x86{}\xe7\xaf\x87\xe6\x96\x87\xe7\xab\xa0'
+                '{}\t\xe4\xbb\x8a\xe5\xa4\xa9\xe5\x85\xb1\xe6\x8f\x90\xe4\xba\xa4\xe4\xba\x860\xe7\xaf\x87\xe6\x96\x87\xe7\xab\xa0'
+            [Disassembly]
+                0       LOAD_FAST                     0: list1
+                2       LOAD_METHOD                   0: delete
+                4       LOAD_CONST                    1: 0
+                6       LOAD_CONST                    2: 'end'
+                8       CALL_METHOD                   2
+                10      POP_TOP                       
+                12      LOAD_GLOBAL                   1: NULL + delete
+                14      LOAD_METHOD                   2: strftime
+                16      LOAD_CONST                    3: '%Y-%m-%d'
+                18      CALL_METHOD                   1
+                20      STORE_FAST                    1: today
+                22      LOAD_GLOBAL                   3: NULL + time
+                24      LOAD_METHOD                   4: listdir
+                26      LOAD_CONST                    4: 'output/articles'
+                28      CALL_METHOD                   1
+                30      STORE_FAST                    2: users
+                32      LOAD_FAST                     2: users
+                34      GET_ITER                      
+                36      FOR_ITER                      69 (to 176)
+                38      STORE_FAST                    3: user
+                40      LOAD_FAST                     3: user
+                42      LOAD_CONST                    5: '\xe8\xa2\xab\xe6\x8a\xa2\xe5\x85\x88'
+                44      COMPARE_OP                    3 (!=)
+                46      POP_JUMP_IF_FALSE             87 (to 174)
+                48      LOAD_GLOBAL                   3: NULL + time
+                50      LOAD_METHOD                   4: listdir
+                52      LOAD_CONST                    6: 'output/articles/'
+                54      LOAD_FAST                     3: user
+                56      FORMAT_VALUE                  0
+                58      BUILD_STRING                  2
+                60      CALL_METHOD                   1
+                62      STORE_FAST                    4: folders
+                64      LOAD_FAST                     4: folders
+                66      GET_ITER                      
+                68      FOR_ITER                      52 (to 174)
+                70      STORE_FAST                    5: folder
+                72      LOAD_GLOBAL                   3: NULL + time
+                74      LOAD_ATTR                     5: path
+                76      LOAD_METHOD                   6: exists
+                78      LOAD_CONST                    6: 'output/articles/'
+                80      LOAD_FAST                     3: user
+                82      FORMAT_VALUE                  0
+                84      LOAD_CONST                    7: '/'
+                86      LOAD_FAST                     1: today
+                88      FORMAT_VALUE                  0
+                90      LOAD_CONST                    8: '-\xe5\xb7\xb2\xe6\x8f\x90\xe4\xba\xa4'
+                92      BUILD_STRING                  5
+                94      CALL_METHOD                   1
+                96      POP_JUMP_IF_FALSE             76 (to 152)
+                98      LOAD_GLOBAL                   3: NULL + time
+                100     LOAD_METHOD                   4: listdir
+                102     LOAD_CONST                    6: 'output/articles/'
+                104     LOAD_FAST                     3: user
+                106     FORMAT_VALUE                  0
+                108     LOAD_CONST                    7: '/'
+                110     LOAD_FAST                     1: today
+                112     FORMAT_VALUE                  0
+                114     LOAD_CONST                    8: '-\xe5\xb7\xb2\xe6\x8f\x90\xe4\xba\xa4'
+                116     BUILD_STRING                  5
+                118     CALL_METHOD                   1
+                120     STORE_FAST                    6: submited
+                122     LOAD_FAST                     0: list1
+                124     LOAD_METHOD                   7: insert
+                126     LOAD_GLOBAL                   8: listdir
+                128     LOAD_ATTR                     9: END
+                130     LOAD_CONST                    9: '{}\t\xe4\xbb\x8a\xe5\xa4\xa9\xe5\x85\xb1\xe6\x8f\x90\xe4\xba\xa4\xe4\xba\x86{}\xe7\xaf\x87\xe6\x96\x87\xe7\xab\xa0'
+                132     LOAD_METHOD                   10: format
+                134     LOAD_FAST                     3: user
+                136     LOAD_GLOBAL                   11: NULL + path
+                138     LOAD_FAST                     6: submited
+                140     CALL_FUNCTION                 1
+                142     CALL_METHOD                   2
+                144     CALL_METHOD                   2
+                146     POP_TOP                       
+                148     POP_TOP                       
+                150     JUMP_FORWARD                  11 (to 174)
+                152     LOAD_FAST                     0: list1
+                154     LOAD_METHOD                   7: insert
+                156     LOAD_GLOBAL                   8: listdir
+                158     LOAD_ATTR                     9: END
+                160     LOAD_CONST                    10: '{}\t\xe4\xbb\x8a\xe5\xa4\xa9\xe5\x85\xb1\xe6\x8f\x90\xe4\xba\xa4\xe4\xba\x860\xe7\xaf\x87\xe6\x96\x87\xe7\xab\xa0'
+                162     LOAD_METHOD                   10: format
+                164     LOAD_FAST                     3: user
+                166     CALL_METHOD                   1
+                168     CALL_METHOD                   2
+                170     POP_TOP                       
+                172     POP_TOP                       
+                174     JUMP_ABSOLUTE                 18 (to 36)
+                176     LOAD_CONST                    0: None
+                178     RETURN_VALUE                  
+        'count_submited'
+        [Code]
+            File Name: 爬取题目并启动.py
+            Object Name: quit
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 7
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'logger'
+                'info'
+                'quit'
+                'sys'
+                'exit'
+            [Var Names]
+                'drivers'
+                'driver'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                '\xe7\xa8\x8b\xe5\xba\x8f\xe9\x80\x80\xe5\x87\xba\xe4\xb8\xad.........'
+            [Disassembly]
+                0       LOAD_GLOBAL                   0: logger
+                2       LOAD_METHOD                   1: info
+                4       LOAD_CONST                    1: '\xe7\xa8\x8b\xe5\xba\x8f\xe9\x80\x80\xe5\x87\xba\xe4\xb8\xad.........'
+                6       CALL_METHOD                   1
+                8       POP_TOP                       
+                10      LOAD_FAST                     0: drivers
+                12      GET_ITER                      
+                14      FOR_ITER                      13 (to 42)
+                16      STORE_FAST                    1: driver
+                18      SETUP_FINALLY                 6 (to 32)
+                20      LOAD_FAST                     1: driver
+                22      LOAD_METHOD                   2: quit
+                24      CALL_METHOD                   0
+                26      POP_TOP                       
+                28      POP_BLOCK                     
+                30      JUMP_ABSOLUTE                 7 (to 14)
+                32      POP_TOP                       
+                34      POP_TOP                       
+                36      POP_TOP                       
+                38      POP_EXCEPT                    
+                40      JUMP_ABSOLUTE                 7 (to 14)
+                42      LOAD_GLOBAL                   3: NULL + info
+                44      LOAD_METHOD                   4: exit
+                46      CALL_METHOD                   0
+                48      POP_TOP                       
+                50      LOAD_CONST                    0: None
+                52      RETURN_VALUE                  
+        'quit'
+        [Code]
+            File Name: 爬取题目并启动.py
+            Object Name: ui
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 4
+            Stack Size: 6
+            Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+            [Names]
+                'Tk'
+                'title'
+                'geometry'
+                'Listbox'
+                'pack'
+                'LEFT'
+                'BOTH'
+                'pack_configure'
+                'count_submited'
+                'tk'
+                'Button'
+            [Var Names]
+                'drivers'
+                'window'
+                'btn'
+                'btn2'
+            [Free Vars]
+            [Cell Vars]
+                'drivers'
+                'list1'
+            [Constants]
+                None
+                '\xe7\x99\xbe\xe5\xba\xa6\xe6\x96\x87\xe5\xba\x93-\xe5\xa2\xa8\xe6\x96\x97\xe9\xb1\xbc\xe8\x84\x9a\xe6\x9c\xac\xe6\x8f\x90\xe4\xba\xa4\xe6\x83\x85\xe5\x86\xb5'
+                '600x200'
+                1
+                (
+                    'side'
+                    'fill'
+                    'expand'
+                )
+                50
+                (
+                    'padx'
+                )
+                '\xe5\x88\xb7\xe6\x96\xb0\xe6\x95\xb0\xe6\x8d\xae'
+                [Code]
+                    File Name: 爬取题目并启动.py
+                    Object Name: <lambda>
+                    Arg Count: 0
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 0
+                    Stack Size: 2
+                    Flags: 0x00000013 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED)
+                    [Names]
+                        'count_submited'
+                    [Var Names]
+                    [Free Vars]
+                        'list1'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                   0: count_submited
+                        2       LOAD_DEREF                    0: list1
+                        4       CALL_FUNCTION                 1
+                        6       RETURN_VALUE                  
+                'ui.<locals>.<lambda>'
+                (
+                    'text'
+                    'command'
+                )
+                '\xe9\x80\x80\xe5\x87\xba\xe7\xa8\x8b\xe5\xba\x8f'
+                [Code]
+                    File Name: 爬取题目并启动.py
+                    Object Name: <lambda>
+                    Arg Count: 0
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 0
+                    Stack Size: 2
+                    Flags: 0x00000013 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED)
+                    [Names]
+                        'quit'
+                    [Var Names]
+                    [Free Vars]
+                        'drivers'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                   0: quit
+                        2       LOAD_DEREF                    0: drivers
+                        4       CALL_FUNCTION                 1
+                        6       RETURN_VALUE                  
+                'bottom'
+                (
+                    'side'
+                )
+            [Disassembly]
+                0       LOAD_GLOBAL                   0: Tk
+                2       CALL_FUNCTION                 0
+                4       STORE_FAST                    1: window
+                6       LOAD_FAST                     1: window
+                8       LOAD_METHOD                   1: title
+                10      LOAD_CONST                    1: '\xe7\x99\xbe\xe5\xba\xa6\xe6\x96\x87\xe5\xba\x93-\xe5\xa2\xa8\xe6\x96\x97\xe9\xb1\xbc\xe8\x84\x9a\xe6\x9c\xac\xe6\x8f\x90\xe4\xba\xa4\xe6\x83\x85\xe5\x86\xb5'
+                12      CALL_METHOD                   1
+                14      POP_TOP                       
+                16      LOAD_FAST                     1: window
+                18      LOAD_METHOD                   2: geometry
+                20      LOAD_CONST                    2: '600x200'
+                22      CALL_METHOD                   1
+                24      POP_TOP                       
+                26      LOAD_GLOBAL                   3: NULL + title
+                28      LOAD_FAST                     1: window
+                30      CALL_FUNCTION                 1
+                32      STORE_DEREF                   1: list1
+                34      LOAD_DEREF                    1: list1
+                36      LOAD_ATTR                     4: pack
+                38      LOAD_GLOBAL                   5: NULL + geometry
+                40      LOAD_GLOBAL                   6: Listbox
+                42      LOAD_CONST                    3: 1
+                44      LOAD_CONST                    4: ('side', 'fill', 'expand')
+                46      CALL_FUNCTION_KW              3
+                48      POP_TOP                       
+                50      LOAD_DEREF                    1: list1
+                52      LOAD_ATTR                     7: pack_configure
+                54      LOAD_CONST                    5: 50
+                56      LOAD_CONST                    6: ('padx',)
+                58      CALL_FUNCTION_KW              1
+                60      POP_TOP                       
+                62      LOAD_GLOBAL                   8: pack
+                64      LOAD_DEREF                    1: list1
+                66      CALL_FUNCTION                 1
+                68      POP_TOP                       
+                70      LOAD_GLOBAL                   9: NULL + pack
+                72      LOAD_ATTR                     10: Button
+                74      LOAD_FAST                     1: window
+                76      LOAD_CONST                    7: '\xe5\x88\xb7\xe6\x96\xb0\xe6\x95\xb0\xe6\x8d\xae'
+                78      LOAD_CLOSURE                  1: list1
+                80      BUILD_TUPLE                   1
+                82      LOAD_CONST                    8: <CODE> <lambda>
+                84      LOAD_CONST                    9: 'ui.<locals>.<lambda>'
+                86      MAKE_FUNCTION                 8
+                88      LOAD_CONST                    10: ('text', 'command')
+                90      CALL_FUNCTION_KW              3
+                92      STORE_FAST                    2: btn
+                94      LOAD_GLOBAL                   9: NULL + pack
+                96      LOAD_ATTR                     10: Button
+                98      LOAD_FAST                     1: window
+                100     LOAD_CONST                    11: '\xe9\x80\x80\xe5\x87\xba\xe7\xa8\x8b\xe5\xba\x8f'
+                102     LOAD_CLOSURE                  0: drivers
+                104     BUILD_TUPLE                   1
+                106     LOAD_CONST                    12: <CODE> <lambda>
+                108     LOAD_CONST                    9: 'ui.<locals>.<lambda>'
+                110     MAKE_FUNCTION                 8
+                112     LOAD_CONST                    10: ('text', 'command')
+                114     CALL_FUNCTION_KW              3
+                116     STORE_FAST                    3: btn2
+                118     LOAD_FAST                     2: btn
+                120     LOAD_METHOD                   4: pack
+                122     CALL_METHOD                   0
+                124     POP_TOP                       
+                126     LOAD_FAST                     3: btn2
+                128     LOAD_ATTR                     4: pack
+                130     LOAD_CONST                    13: 'bottom'
+                132     LOAD_CONST                    14: ('side',)
+                134     CALL_FUNCTION_KW              1
+                136     POP_TOP                       
+                138     LOAD_FAST                     1: window
+                140     RETURN_VALUE                  
+        'ui'
+        [Code]
+            File Name: 爬取题目并启动.py
+            Object Name: main
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 5
+            Stack Size: 6
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'time'
+                'sleep'
+                'get_username'
+                'replace'
+                'threading'
+                'Thread'
+                'upload'
+                'main'
+                'generate_articles_by_openai_completion'
+                'proxies'
+                'daemon'
+                'start'
+                'join'
+                'sys'
+                'exit'
+            [Var Names]
+                'headers'
+                'driver'
+                'username_str'
+                'thread_upload'
+                'thread_write'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                1
+                '\\'
+                '.'
+                '*'
+                '?'
+                '"'
+                '<'
+                '>'
+                '|'
+                ':'
+                ';'
+                (
+                    'target'
+                    'args'
+                )
+                True
+            [Disassembly]
+                0       LOAD_GLOBAL                   0: time
+                2       LOAD_METHOD                   1: sleep
+                4       LOAD_CONST                    1: 1
+                6       CALL_METHOD                   1
+                8       POP_TOP                       
+                10      LOAD_GLOBAL                   2: sleep
+                12      LOAD_FAST                     1: driver
+                14      CALL_FUNCTION                 1
+                16      STORE_FAST                    2: username_str
+                18      LOAD_FAST                     2: username_str
+                20      LOAD_METHOD                   3: replace
+                22      LOAD_CONST                    2: '\\'
+                24      LOAD_CONST                    3: '.'
+                26      CALL_METHOD                   2
+                28      LOAD_METHOD                   3: replace
+                30      LOAD_CONST                    4: '*'
+                32      LOAD_CONST                    3: '.'
+                34      CALL_METHOD                   2
+                36      LOAD_METHOD                   3: replace
+                38      LOAD_CONST                    5: '?'
+                40      LOAD_CONST                    3: '.'
+                42      CALL_METHOD                   2
+                44      LOAD_METHOD                   3: replace
+                46      LOAD_CONST                    6: '"'
+                48      LOAD_CONST                    3: '.'
+                50      CALL_METHOD                   2
+                52      LOAD_METHOD                   3: replace
+                54      LOAD_CONST                    7: '<'
+                56      LOAD_CONST                    3: '.'
+                58      CALL_METHOD                   2
+                60      LOAD_METHOD                   3: replace
+                62      LOAD_CONST                    8: '>'
+                64      LOAD_CONST                    3: '.'
+                66      CALL_METHOD                   2
+                68      LOAD_METHOD                   3: replace
+                70      LOAD_CONST                    9: '|'
+                72      LOAD_CONST                    3: '.'
+                74      CALL_METHOD                   2
+                76      LOAD_METHOD                   3: replace
+                78      LOAD_CONST                    10: ':'
+                80      LOAD_CONST                    3: '.'
+                82      CALL_METHOD                   2
+                84      LOAD_METHOD                   3: replace
+                86      LOAD_CONST                    11: ';'
+                88      LOAD_CONST                    3: '.'
+                90      CALL_METHOD                   2
+                92      STORE_FAST                    2: username_str
+                94      LOAD_GLOBAL                   4: get_username
+                96      LOAD_ATTR                     5: Thread
+                98      LOAD_GLOBAL                   6: replace
+                100     LOAD_ATTR                     7: main
+                102     LOAD_FAST                     1: driver
+                104     LOAD_FAST                     2: username_str
+                106     BUILD_TUPLE                   2
+                108     LOAD_CONST                    12: ('target', 'args')
+                110     CALL_FUNCTION_KW              2
+                112     STORE_FAST                    3: thread_upload
+                114     LOAD_GLOBAL                   4: get_username
+                116     LOAD_ATTR                     5: Thread
+                118     LOAD_GLOBAL                   8: threading
+                120     LOAD_ATTR                     7: main
+                122     LOAD_FAST                     0: headers
+                124     LOAD_FAST                     2: username_str
+                126     LOAD_GLOBAL                   9: NULL + threading
+                128     LOAD_FAST                     3: thread_upload
+                130     BUILD_TUPLE                   4
+                132     LOAD_CONST                    12: ('target', 'args')
+                134     CALL_FUNCTION_KW              2
+                136     STORE_FAST                    4: thread_write
+                138     LOAD_CONST                    13: True
+                140     LOAD_FAST                     3: thread_upload
+                142     STORE_ATTR                    10: daemon
+                144     LOAD_CONST                    13: True
+                146     LOAD_FAST                     4: thread_write
+                148     STORE_ATTR                    10: daemon
+                150     LOAD_FAST                     3: thread_upload
+                152     LOAD_METHOD                   11: start
+                154     CALL_METHOD                   0
+                156     POP_TOP                       
+                158     LOAD_FAST                     4: thread_write
+                160     LOAD_METHOD                   11: start
+                162     CALL_METHOD                   0
+                164     POP_TOP                       
+                166     LOAD_FAST                     3: thread_upload
+                168     LOAD_METHOD                   12: join
+                170     CALL_METHOD                   0
+                172     POP_TOP                       
+                174     LOAD_GLOBAL                   13: NULL + upload
+                176     LOAD_METHOD                   14: exit
+                178     CALL_METHOD                   0
+                180     POP_TOP                       
+                182     LOAD_CONST                    0: None
+                184     RETURN_VALUE                  
+        'main'
+        '__main__'
+        3
+        '\n    \xe5\x85\x8d\xe8\xb4\xa3\xe5\xa3\xb0\xe6\x98\x8e\n\n    \xe6\x9c\xac\xe5\x85\x8d\xe8\xb4\xa3\xe5\xa3\xb0\xe6\x98\x8e\xe6\x98\xaf\xe7\x94\xb1\xe6\x9c\xac\xe4\xba\xba\xe5\x8f\x91\xe5\xb8\x83\xe7\x9a\x84\xef\xbc\x8c\xe5\x85\xb3\xe4\xba\x8e\xe6\x9c\xac\xe4\xba\xba\xe6\xad\xa3\xe5\x9c\xa8\xe5\xbc\x80\xe5\x8f\x91\xe7\x9a\x84\xe8\xbd\xaf\xe4\xbb\xb6\xe3\x80\x82\n\n    \xe6\xa0\xb9\xe6\x8d\xae\xe4\xb8\xad\xe5\x9b\xbd\xe6\xb3\x95\xe5\xbe\x8b\xef\xbc\x8c\xe6\x82\xa8\xe5\x9c\xa8\xe4\xb8\x8b\xe8\xbd\xbd\xe6\xad\xa4\xe6\xba\x90\xe4\xbb\xa3\xe7\xa0\x81\xe6\x97\xb6\xe6\x89\xbf\xe8\xaf\xba\xe5\x8f\xaa\xe5\xb0\x86\xe5\x85\xb6\xe7\x94\xa8\xe4\xba\x8e\xe5\xad\xa6\xe4\xb9\xa0\xe7\x9b\xae\xe7\x9a\x84\xef\xbc\x8c\xe5\xb9\xb6\xe6\x89\xbf\xe8\xaf\xba\xe4\xb8\x8d\xe4\xbc\x9a\xe5\xb0\x86\xe5\x85\xb6\xe7\x94\xa8\xe4\xba\x8e\xe7\x9b\x88\xe5\x88\xa9\xe6\x88\x96\xe5\x95\x86\xe4\xb8\x9a\xe7\x94\xa8\xe9\x80\x94\xe3\x80\x82\xe5\xa6\x82\xe6\x9e\x9c\xe6\x82\xa8\xe8\xbf\x9d\xe5\x8f\x8d\xe4\xba\x86\xe6\xad\xa4\xe6\x89\xbf\xe8\xaf\xba\xef\xbc\x8c\xe6\x82\xa8\xe5\xb0\x86\xe8\x87\xaa\xe8\xa1\x8c\xe6\x89\xbf\xe6\x8b\x85\xe5\x90\x8e\xe6\x9e\x9c\xe3\x80\x82\n    \xe8\xaf\xb7\xe6\xb3\xa8\xe6\x84\x8f\xef\xbc\x8c\xe4\xb8\x8b\xe8\xbd\xbd\xe5\xb9\xb6\xe4\xbd\xbf\xe7\x94\xa8\xe6\xad\xa4\xe6\xba\x90\xe4\xbb\xa3\xe7\xa0\x81\xe5\xb9\xb6\xe4\xb8\x8d\xe6\x84\x8f\xe5\x91\xb3\xe7\x9d\x80\xe6\x82\xa8\xe8\x8e\xb7\xe5\xbe\x97\xe4\xbb\xbb\xe4\xbd\x95\xe5\xbd\xa2\xe5\xbc\x8f\xe7\x9a\x84\xe6\x8e\x88\xe6\x9d\x83\xe6\x88\x96\xe8\xae\xb8\xe5\x8f\xaf\xef\xbc\x8c\xe5\x8c\x85\xe6\x8b\xac\xe4\xbd\x86\xe4\xb8\x8d\xe9\x99\x90\xe4\xba\x8e\xe7\x89\x88\xe6\x9d\x83\xe3\x80\x81\xe5\x95\x86\xe6\xa0\x87\xe6\x88\x96\xe4\xb8\x93\xe5\x88\xa9\xe6\x8e\x88\xe6\x9d\x83\xe3\x80\x82\xe6\x82\xa8\xe5\xba\x94\xe8\x87\xaa\xe8\xa1\x8c\xe6\x89\xbf\xe6\x8b\x85\xe5\x9b\xa0\xe4\xbd\xbf\xe7\x94\xa8\xe6\xad\xa4\xe6\xba\x90\xe4\xbb\xa3\xe7\xa0\x81\xe8\x80\x8c\xe4\xba\xa7\xe7\x94\x9f\xe7\x9a\x84\xe4\xbb\xbb\xe4\xbd\x95\xe6\xb3\x95\xe5\xbe\x8b\xe8\xb4\xa3\xe4\xbb\xbb\xe3\x80\x82\n    \xe5\xa6\x82\xe6\x9e\x9c\xe6\x82\xa8\xe6\x9c\x89\xe4\xbb\xbb\xe4\xbd\x95\xe7\x96\x91\xe9\x97\xae\xe6\x88\x96\xe9\x9c\x80\xe8\xa6\x81\xe8\xbf\x9b\xe4\xb8\x80\xe6\xad\xa5\xe4\xbf\xa1\xe6\x81\xaf\xef\xbc\x8c\xe8\xaf\xb7\xe8\x81\x94\xe7\xb3\xbb\xe5\x92\xa8\xe8\xaf\xa2\xe6\xb3\x95\xe5\xbe\x8b\xe9\xa1\xbe\xe9\x97\xae\xe3\x80\x82\xe5\x9c\xa8\xe6\xad\xa4\xe5\xa3\xb0\xe6\x98\x8e\xe4\xb8\xad\xe6\x8f\x90\xe5\x88\xb0\xe7\x9a\x84\xe6\x9d\xa1\xe6\xac\xbe\xe5\x92\x8c\xe6\x9d\xa1\xe4\xbb\xb6\xe4\xbb\x85\xe6\x98\xaf\xe6\x82\xa8\xe4\xb8\x8e\xe7\x89\x88\xe6\x9d\x83\xe6\x89\x80\xe6\x9c\x89\xe4\xba\xba\xe4\xb9\x8b\xe9\x97\xb4\xe7\x9a\x84\xe5\x8d\x8f\xe8\xae\xae\xef\xbc\x8c\xe4\xb8\x8d\xe4\xbc\x9a\xe5\xbd\xb1\xe5\x93\x8d\xe6\x82\xa8\xe4\xb8\x8e\xe5\x85\xb6\xe4\xbb\x96\xe4\xbb\xbb\xe4\xbd\x95\xe6\x96\xb9\xe7\x9a\x84\xe6\x9d\x83\xe5\x88\xa9\xe4\xb9\x89\xe5\x8a\xa1\xe3\x80\x82\n\n    \xe6\x9c\xac\xe8\xbd\xaf\xe4\xbb\xb6\xe7\x94\xb1\xe6\x9c\xac\xe4\xba\xba\xe5\xbc\x80\xe5\x8f\x91\xef\xbc\x8c\xe4\xbb\x85\xe4\xbe\x9b\xe7\x94\xa8\xe6\x88\xb7\xe5\xad\xa6\xe4\xb9\xa0\xe3\x80\x82\xe7\x94\xa8\xe6\x88\xb7\xe5\x9c\xa8\xe4\xbd\xbf\xe7\x94\xa8\xe6\x9c\xac\xe8\xbd\xaf\xe4\xbb\xb6\xe6\x97\xb6\xef\xbc\x8c\xe5\xba\x94\xe5\xbd\x93\xe9\x81\xb5\xe5\xae\x88\xe5\x9b\xbd\xe5\xae\xb6\xe6\x9c\x89\xe5\x85\xb3\xe6\xb3\x95\xe5\xbe\x8b\xe6\xb3\x95\xe8\xa7\x84\xef\xbc\x8c\xe4\xb8\x8d\xe5\xbe\x97\xe5\x88\xa9\xe7\x94\xa8\xe6\x9c\xac\xe8\xbd\xaf\xe4\xbb\xb6\xe4\xbb\x8e\xe4\xba\x8b\xe4\xbb\xbb\xe4\xbd\x95\xe8\xbf\x9d\xe6\xb3\x95\xe6\xb4\xbb\xe5\x8a\xa8\xe3\x80\x82\xe5\xa6\x82\xe6\x9c\x89\xe8\xbf\x9d\xe6\xb3\x95\xe8\xa1\x8c\xe4\xb8\xba\xef\xbc\x8c\xe7\x94\xa8\xe6\x88\xb7\xe5\xba\x94\xe6\x89\xbf\xe6\x8b\x85\xe7\x9b\xb8\xe5\xba\x94\xe7\x9a\x84\xe6\xb3\x95\xe5\xbe\x8b\xe8\xb4\xa3\xe4\xbb\xbb\xe3\x80\x82\n\n    \xe6\x9c\xac\xe4\xba\xba\xe4\xb8\x8d\xe5\xaf\xb9\xe7\x94\xa8\xe6\x88\xb7\xe5\x9b\xa0\xe4\xbd\xbf\xe7\x94\xa8\xe6\x9c\xac\xe8\xbd\xaf\xe4\xbb\xb6\xe8\x80\x8c\xe4\xba\xa7\xe7\x94\x9f\xe7\x9a\x84\xe4\xbb\xbb\xe4\xbd\x95\xe6\x8d\x9f\xe5\xa4\xb1\xe6\x89\xbf\xe6\x8b\x85\xe8\xb4\xa3\xe4\xbb\xbb\xef\xbc\x8c\xe5\x8c\x85\xe6\x8b\xac\xe4\xbd\x86\xe4\xb8\x8d\xe9\x99\x90\xe4\xba\x8e\xe7\x94\xb1\xe4\xba\x8e\xe7\x99\xbe\xe5\xba\xa6\xe8\xa7\x84\xe5\x88\x99\xe5\x92\x8cOpenAI\xe6\x94\xbf\xe7\xad\x96\xe7\x9a\x84\xe6\x94\xb9\xe5\x8f\x98\xe5\xaf\xbc\xe8\x87\xb4\xe6\x9c\xac\xe8\xbd\xaf\xe4\xbb\xb6\xe4\xb8\x8d\xe5\x8f\xaf\xe7\x94\xa8\xef\xbc\x8c\xe4\xbb\xa5\xe5\x8f\x8a\xe7\x94\xb1\xe6\xad\xa4\xe5\xbc\x95\xe8\xb5\xb7\xe7\x9a\x84\xe4\xbb\xbb\xe4\xbd\x95\xe6\x8d\x9f\xe5\xa4\xb1\xe3\x80\x82\n\n    \xe6\x9c\xac\xe4\xba\xba\xe4\xb8\x8d\xe5\xaf\xb9\xe5\x9b\xa0\xe7\x99\xbe\xe5\xba\xa6\xe8\xa7\x84\xe5\x88\x99\xe7\x9a\x84\xe6\x94\xb9\xe5\x8f\x98\xe8\x80\x8c\xe5\xaf\xbc\xe8\x87\xb4\xe8\xbd\xaf\xe4\xbb\xb6\xe4\xb8\x8d\xe5\x8f\xaf\xe7\x94\xa8\xe6\x89\xbf\xe6\x8b\x85\xe4\xbb\xbb\xe4\xbd\x95\xe8\xb4\xa3\xe4\xbb\xbb\xef\xbc\x8c\xe4\xb9\x9f\xe4\xb8\x8d\xe6\x89\xbf\xe6\x8b\x85\xe4\xbb\xbb\xe4\xbd\x95\xe4\xb9\x89\xe5\x8a\xa1\xe5\x92\x8c\xe8\xb4\xa3\xe4\xbb\xbb\xe5\x8e\xbb\xe4\xbf\x9d\xe8\xaf\x81\xe8\xbd\xaf\xe4\xbb\xb6\xe7\x9a\x84\xe6\x8c\x81\xe7\xbb\xad\xe5\x8f\xaf\xe7\x94\xa8\xe3\x80\x82\xe4\xbb\x85\xe4\xbd\x9c\xe4\xb8\xba\xe8\xbd\xaf\xe4\xbb\xb6\xe7\x9a\x84\xe5\x88\xb6\xe4\xbd\x9c\xe8\x80\x85\xef\xbc\x8c\xe4\xb8\x8d\xe4\xbf\x9d\xe8\xaf\x81\xe9\xa1\xb9\xe7\x9b\xae\xe7\x9a\x84\xe5\x8f\xaf\xe6\x8c\x81\xe7\xbb\xad\xe6\x80\xa7\xef\xbc\x8c\xe4\xb8\x8d\xe4\xbf\x9d\xe8\xaf\x81\xe6\x94\xb6\xe7\x9b\x8a\xe7\x9a\x84\xe7\xa8\xb3\xe5\xae\x9a\xe6\x80\xa7\xe3\x80\x82\xe7\x94\xa8\xe6\x88\xb7\xe5\x9c\xa8\xe4\xbd\xbf\xe7\x94\xa8\xe6\x9c\xac\xe8\xbd\xaf\xe4\xbb\xb6\xe6\x97\xb6\xef\xbc\x8c\xe5\xba\x94\xe5\xbd\x93\xe8\x87\xaa\xe8\xa1\x8c\xe6\x89\xbf\xe6\x8b\x85\xe9\xa3\x8e\xe9\x99\xa9\xef\xbc\x8c\xe6\x9c\xac\xe4\xba\xba\xe4\xb8\x8d\xe5\xaf\xb9\xe5\x9b\xa0\xe4\xbd\xbf\xe7\x94\xa8\xe6\x9c\xac\xe8\xbd\xaf\xe4\xbb\xb6\xe8\x80\x8c\xe4\xba\xa7\xe7\x94\x9f\xe7\x9a\x84\xe4\xbb\xbb\xe4\xbd\x95\xe6\x8d\x9f\xe5\xa4\xb1\xe8\xb4\x9f\xe8\xb4\xa3\xe3\x80\x82\n\n    \xe6\x9c\xac\xe5\x85\x8d\xe8\xb4\xa3\xe5\xa3\xb0\xe6\x98\x8e\xe7\x9a\x84\xe8\xa7\xa3\xe9\x87\x8a\xe6\x9d\x83\xe5\xbd\x92\xe6\x88\x91\xe4\xb8\xaa\xe4\xba\xba\xe6\x89\x80\xe6\x9c\x89\xe3\x80\x82\n\n    \xe7\x89\xb9\xe6\xad\xa4\xe5\xa3\xb0\xe6\x98\x8e\xef\xbc\x81'
+        'conf/secret.txt'
+        'r'
+        'utf8'
+        (
+            'encoding'
+        )
+        32
+        6
+        8
+        '00'
+        'conf/cookies'
+        '\xe5\x8f\xaf\xe5\x90\x8c\xe6\x97\xb6\xe8\xbf\x90\xe8\xa1\x8c\xe8\xb4\xa6\xe5\x8f\xb7\xe6\x95\xb0:'
+        '\xe6\x8a\x93\xe5\x8f\x96\xe4\xbb\xa3\xe7\x90\x86\xe6\x97\xb6\xe5\x87\xba\xe9\x94\x99!'
+        'exception,type={},content={}'
+        (
+            'drivers'
+        )
+        'conf/cookies/fetch_tasks_curl'
+        1
+        '.txt'
+        '\xe8\xb4\xa6\xe5\x8f\xb7'
+        '\xe6\x9c\xaa\xe9\x85\x8d\xe7\xbd\xae'
+        'headers'
+        (
+            'target'
+            'args'
+        )
+        True
+        10
+    [Disassembly]
+        0       LOAD_CONST                    0: 0
+        2       LOAD_CONST                    1: None
+        4       IMPORT_NAME                   0: generate_articles_by_openai_completion
+        6       STORE_NAME                    0: generate_articles_by_openai_completion
+        8       LOAD_CONST                    0: 0
+        10      LOAD_CONST                    1: None
+        12      IMPORT_NAME                   1: threading
+        14      STORE_NAME                    1: threading
+        16      LOAD_CONST                    0: 0
+        18      LOAD_CONST                    1: None
+        20      IMPORT_NAME                   2: upload
+        22      STORE_NAME                    2: upload
+        24      LOAD_CONST                    0: 0
+        26      LOAD_CONST                    1: None
+        28      IMPORT_NAME                   3: sys
+        30      STORE_NAME                    3: sys
+        32      LOAD_CONST                    0: 0
+        34      LOAD_CONST                    1: None
+        36      IMPORT_NAME                   4: datetime
+        38      STORE_NAME                    4: datetime
+        40      LOAD_CONST                    0: 0
+        42      LOAD_CONST                    1: None
+        44      IMPORT_NAME                   5: uuid
+        46      STORE_NAME                    5: uuid
+        48      LOAD_CONST                    0: 0
+        50      LOAD_CONST                    1: None
+        52      IMPORT_NAME                   6: requests
+        54      STORE_NAME                    6: requests
+        56      LOAD_CONST                    0: 0
+        58      LOAD_CONST                    2: ('parse_from_file',)
+        60      IMPORT_NAME                   7: pkg.parse_curl
+        62      IMPORT_FROM                   8: parse_from_file
+        64      STORE_NAME                    8: parse_from_file
+        66      POP_TOP                       
+        68      LOAD_CONST                    0: 0
+        70      LOAD_CONST                    3: ('loginBaidu', 'get_username')
+        72      IMPORT_NAME                   9: upload_util
+        74      IMPORT_FROM                   10: loginBaidu
+        76      STORE_NAME                    10: loginBaidu
+        78      IMPORT_FROM                   11: get_username
+        80      STORE_NAME                    11: get_username
+        82      POP_TOP                       
+        84      LOAD_CONST                    0: 0
+        86      LOAD_CONST                    1: None
+        88      IMPORT_NAME                   12: os
+        90      STORE_NAME                    12: os
+        92      LOAD_CONST                    0: 0
+        94      LOAD_CONST                    1: None
+        96      IMPORT_NAME                   13: time
+        98      STORE_NAME                    13: time
+        100     LOAD_CONST                    0: 0
+        102     LOAD_CONST                    4: ('*',)
+        104     IMPORT_NAME                   14: tkinter
+        106     IMPORT_STAR                   
+        108     LOAD_CONST                    0: 0
+        110     LOAD_CONST                    1: None
+        112     IMPORT_NAME                   14: tkinter
+        114     STORE_NAME                    15: tk
+        116     LOAD_CONST                    0: 0
+        118     LOAD_CONST                    5: ('logger',)
+        120     IMPORT_NAME                   16: loguru
+        122     IMPORT_FROM                   17: logger
+        124     STORE_NAME                    17: logger
+        126     POP_TOP                       
+        128     LOAD_CONST                    0: 0
+        130     LOAD_CONST                    6: ('utils',)
+        132     IMPORT_NAME                   18: pkg
+        134     IMPORT_FROM                   19: utils
+        136     STORE_NAME                    19: utils
+        138     POP_TOP                       
+        140     LOAD_CONST                    0: 0
+        142     LOAD_CONST                    1: None
+        144     IMPORT_NAME                   20: urllib3
+        146     STORE_NAME                    20: urllib3
+        148     LOAD_CONST                    0: 0
+        150     LOAD_CONST                    1: None
+        152     IMPORT_NAME                   21: random
+        154     STORE_NAME                    21: random
+        156     LOAD_CONST                    0: 0
+        158     LOAD_CONST                    7: ('etree',)
+        160     IMPORT_NAME                   22: lxml
+        162     IMPORT_FROM                   23: etree
+        164     STORE_NAME                    23: etree
+        166     POP_TOP                       
+        168     LOAD_CONST                    0: 0
+        170     LOAD_CONST                    1: None
+        172     IMPORT_NAME                   24: psutil
+        174     STORE_NAME                    24: psutil
+        176     LOAD_BUILD_CLASS              
+        178     LOAD_CONST                    8: <CODE> daili
+        180     LOAD_CONST                    9: 'daili'
+        182     MAKE_FUNCTION                 0
+        184     LOAD_CONST                    9: 'daili'
+        186     CALL_FUNCTION                 2
+        188     STORE_NAME                    25: daili
+        190     LOAD_CONST                    10: 'data_key'
+        192     LOAD_NAME                     26: str
+        194     BUILD_TUPLE                   2
+        196     LOAD_CONST                    11: <CODE> check_date
+        198     LOAD_CONST                    12: 'check_date'
+        200     MAKE_FUNCTION                 4
+        202     STORE_NAME                    27: check_date
+        204     LOAD_CONST                    13: <CODE> check_time
+        206     LOAD_CONST                    14: 'check_time'
+        208     MAKE_FUNCTION                 0
+        210     STORE_NAME                    28: check_time
+        212     LOAD_CONST                    15: <CODE> check_pc
+        214     LOAD_CONST                    16: 'check_pc'
+        216     MAKE_FUNCTION                 0
+        218     STORE_NAME                    29: check_pc
+        220     LOAD_CONST                    17: <CODE> check_double_exe
+        222     LOAD_CONST                    18: 'check_double_exe'
+        224     MAKE_FUNCTION                 0
+        226     STORE_NAME                    30: check_double_exe
+        228     LOAD_CONST                    19: <CODE> count_submited
+        230     LOAD_CONST                    20: 'count_submited'
+        232     MAKE_FUNCTION                 0
+        234     STORE_NAME                    31: count_submited
+        236     LOAD_CONST                    21: <CODE> quit
+        238     LOAD_CONST                    22: 'quit'
+        240     MAKE_FUNCTION                 0
+        242     STORE_NAME                    32: quit
+        244     LOAD_CONST                    23: <CODE> ui
+        246     LOAD_CONST                    24: 'ui'
+        248     MAKE_FUNCTION                 0
+        250     STORE_NAME                    33: ui
+        252     LOAD_CONST                    25: <CODE> main
+        254     LOAD_CONST                    26: 'main'
+        256     MAKE_FUNCTION                 0
+        258     STORE_NAME                    34: main
+        260     LOAD_NAME                     35: __name__
+        262     LOAD_CONST                    27: '__main__'
+        264     COMPARE_OP                    2 (==)
+        266     POP_JUMP_IF_FALSE             380 (to 760)
+        270     LOAD_NAME                     29: check_pc
+        272     CALL_FUNCTION                 0
+        274     POP_TOP                       
+        276     LOAD_NAME                     13: time
+        278     LOAD_METHOD                   36: sleep
+        280     LOAD_CONST                    28: 3
+        282     CALL_METHOD                   1
+        284     POP_TOP                       
+        286     LOAD_NAME                     30: check_double_exe
+        288     CALL_FUNCTION                 0
+        290     POP_TOP                       
+        292     LOAD_NAME                     37: print
+        294     LOAD_CONST                    29: '\n    \xe5\x85\x8d\xe8\xb4\xa3\xe5\xa3\xb0\xe6\x98\x8e\n\n    \xe6\x9c\xac\xe5\x85\x8d\xe8\xb4\xa3\xe5\xa3\xb0\xe6\x98\x8e\xe6\x98\xaf\xe7\x94\xb1\xe6\x9c\xac\xe4\xba\xba\xe5\x8f\x91\xe5\xb8\x83\xe7\x9a\x84\xef\xbc\x8c\xe5\x85\xb3\xe4\xba\x8e\xe6\x9c\xac\xe4\xba\xba\xe6\xad\xa3\xe5\x9c\xa8\xe5\xbc\x80\xe5\x8f\x91\xe7\x9a\x84\xe8\xbd\xaf\xe4\xbb\xb6\xe3\x80\x82\n\n    \xe6\xa0\xb9\xe6\x8d\xae\xe4\xb8\xad\xe5\x9b\xbd\xe6\xb3\x95\xe5\xbe\x8b\xef\xbc\x8c\xe6\x82\xa8\xe5\x9c\xa8\xe4\xb8\x8b\xe8\xbd\xbd\xe6\xad\xa4\xe6\xba\x90\xe4\xbb\xa3\xe7\xa0\x81\xe6\x97\xb6\xe6\x89\xbf\xe8\xaf\xba\xe5\x8f\xaa\xe5\xb0\x86\xe5\x85\xb6\xe7\x94\xa8\xe4\xba\x8e\xe5\xad\xa6\xe4\xb9\xa0\xe7\x9b\xae\xe7\x9a\x84\xef\xbc\x8c\xe5\xb9\xb6\xe6\x89\xbf\xe8\xaf\xba\xe4\xb8\x8d\xe4\xbc\x9a\xe5\xb0\x86\xe5\x85\xb6\xe7\x94\xa8\xe4\xba\x8e\xe7\x9b\x88\xe5\x88\xa9\xe6\x88\x96\xe5\x95\x86\xe4\xb8\x9a\xe7\x94\xa8\xe9\x80\x94\xe3\x80\x82\xe5\xa6\x82\xe6\x9e\x9c\xe6\x82\xa8\xe8\xbf\x9d\xe5\x8f\x8d\xe4\xba\x86\xe6\xad\xa4\xe6\x89\xbf\xe8\xaf\xba\xef\xbc\x8c\xe6\x82\xa8\xe5\xb0\x86\xe8\x87\xaa\xe8\xa1\x8c\xe6\x89\xbf\xe6\x8b\x85\xe5\x90\x8e\xe6\x9e\x9c\xe3\x80\x82\n    \xe8\xaf\xb7\xe6\xb3\xa8\xe6\x84\x8f\xef\xbc\x8c\xe4\xb8\x8b\xe8\xbd\xbd\xe5\xb9\xb6\xe4\xbd\xbf\xe7\x94\xa8\xe6\xad\xa4\xe6\xba\x90\xe4\xbb\xa3\xe7\xa0\x81\xe5\xb9\xb6\xe4\xb8\x8d\xe6\x84\x8f\xe5\x91\xb3\xe7\x9d\x80\xe6\x82\xa8\xe8\x8e\xb7\xe5\xbe\x97\xe4\xbb\xbb\xe4\xbd\x95\xe5\xbd\xa2\xe5\xbc\x8f\xe7\x9a\x84\xe6\x8e\x88\xe6\x9d\x83\xe6\x88\x96\xe8\xae\xb8\xe5\x8f\xaf\xef\xbc\x8c\xe5\x8c\x85\xe6\x8b\xac\xe4\xbd\x86\xe4\xb8\x8d\xe9\x99\x90\xe4\xba\x8e\xe7\x89\x88\xe6\x9d\x83\xe3\x80\x81\xe5\x95\x86\xe6\xa0\x87\xe6\x88\x96\xe4\xb8\x93\xe5\x88\xa9\xe6\x8e\x88\xe6\x9d\x83\xe3\x80\x82\xe6\x82\xa8\xe5\xba\x94\xe8\x87\xaa\xe8\xa1\x8c\xe6\x89\xbf\xe6\x8b\x85\xe5\x9b\xa0\xe4\xbd\xbf\xe7\x94\xa8\xe6\xad\xa4\xe6\xba\x90\xe4\xbb\xa3\xe7\xa0\x81\xe8\x80\x8c\xe4\xba\xa7\xe7\x94\x9f\xe7\x9a\x84\xe4\xbb\xbb\xe4\xbd\x95\xe6\xb3\x95\xe5\xbe\x8b\xe8\xb4\xa3\xe4\xbb\xbb\xe3\x80\x82\n    \xe5\xa6\x82\xe6\x9e\x9c\xe6\x82\xa8\xe6\x9c\x89\xe4\xbb\xbb\xe4\xbd\x95\xe7\x96\x91\xe9\x97\xae\xe6\x88\x96\xe9\x9c\x80\xe8\xa6\x81\xe8\xbf\x9b\xe4\xb8\x80\xe6\xad\xa5\xe4\xbf\xa1\xe6\x81\xaf\xef\xbc\x8c\xe8\xaf\xb7\xe8\x81\x94\xe7\xb3\xbb\xe5\x92\xa8\xe8\xaf\xa2\xe6\xb3\x95\xe5\xbe\x8b\xe9\xa1\xbe\xe9\x97\xae\xe3\x80\x82\xe5\x9c\xa8\xe6\xad\xa4\xe5\xa3\xb0\xe6\x98\x8e\xe4\xb8\xad\xe6\x8f\x90\xe5\x88\xb0\xe7\x9a\x84\xe6\x9d\xa1\xe6\xac\xbe\xe5\x92\x8c\xe6\x9d\xa1\xe4\xbb\xb6\xe4\xbb\x85\xe6\x98\xaf\xe6\x82\xa8\xe4\xb8\x8e\xe7\x89\x88\xe6\x9d\x83\xe6\x89\x80\xe6\x9c\x89\xe4\xba\xba\xe4\xb9\x8b\xe9\x97\xb4\xe7\x9a\x84\xe5\x8d\x8f\xe8\xae\xae\xef\xbc\x8c\xe4\xb8\x8d\xe4\xbc\x9a\xe5\xbd\xb1\xe5\x93\x8d\xe6\x82\xa8\xe4\xb8\x8e\xe5\x85\xb6\xe4\xbb\x96\xe4\xbb\xbb\xe4\xbd\x95\xe6\x96\xb9\xe7\x9a\x84\xe6\x9d\x83\xe5\x88\xa9\xe4\xb9\x89\xe5\x8a\xa1\xe3\x80\x82\n\n    \xe6\x9c\xac\xe8\xbd\xaf\xe4\xbb\xb6\xe7\x94\xb1\xe6\x9c\xac\xe4\xba\xba\xe5\xbc\x80\xe5\x8f\x91\xef\xbc\x8c\xe4\xbb\x85\xe4\xbe\x9b\xe7\x94\xa8\xe6\x88\xb7\xe5\xad\xa6\xe4\xb9\xa0\xe3\x80\x82\xe7\x94\xa8\xe6\x88\xb7\xe5\x9c\xa8\xe4\xbd\xbf\xe7\x94\xa8\xe6\x9c\xac\xe8\xbd\xaf\xe4\xbb\xb6\xe6\x97\xb6\xef\xbc\x8c\xe5\xba\x94\xe5\xbd\x93\xe9\x81\xb5\xe5\xae\x88\xe5\x9b\xbd\xe5\xae\xb6\xe6\x9c\x89\xe5\x85\xb3\xe6\xb3\x95\xe5\xbe\x8b\xe6\xb3\x95\xe8\xa7\x84\xef\xbc\x8c\xe4\xb8\x8d\xe5\xbe\x97\xe5\x88\xa9\xe7\x94\xa8\xe6\x9c\xac\xe8\xbd\xaf\xe4\xbb\xb6\xe4\xbb\x8e\xe4\xba\x8b\xe4\xbb\xbb\xe4\xbd\x95\xe8\xbf\x9d\xe6\xb3\x95\xe6\xb4\xbb\xe5\x8a\xa8\xe3\x80\x82\xe5\xa6\x82\xe6\x9c\x89\xe8\xbf\x9d\xe6\xb3\x95\xe8\xa1\x8c\xe4\xb8\xba\xef\xbc\x8c\xe7\x94\xa8\xe6\x88\xb7\xe5\xba\x94\xe6\x89\xbf\xe6\x8b\x85\xe7\x9b\xb8\xe5\xba\x94\xe7\x9a\x84\xe6\xb3\x95\xe5\xbe\x8b\xe8\xb4\xa3\xe4\xbb\xbb\xe3\x80\x82\n\n    \xe6\x9c\xac\xe4\xba\xba\xe4\xb8\x8d\xe5\xaf\xb9\xe7\x94\xa8\xe6\x88\xb7\xe5\x9b\xa0\xe4\xbd\xbf\xe7\x94\xa8\xe6\x9c\xac\xe8\xbd\xaf\xe4\xbb\xb6\xe8\x80\x8c\xe4\xba\xa7\xe7\x94\x9f\xe7\x9a\x84\xe4\xbb\xbb\xe4\xbd\x95\xe6\x8d\x9f\xe5\xa4\xb1\xe6\x89\xbf\xe6\x8b\x85\xe8\xb4\xa3\xe4\xbb\xbb\xef\xbc\x8c\xe5\x8c\x85\xe6\x8b\xac\xe4\xbd\x86\xe4\xb8\x8d\xe9\x99\x90\xe4\xba\x8e\xe7\x94\xb1\xe4\xba\x8e\xe7\x99\xbe\xe5\xba\xa6\xe8\xa7\x84\xe5\x88\x99\xe5\x92\x8cOpenAI\xe6\x94\xbf\xe7\xad\x96\xe7\x9a\x84\xe6\x94\xb9\xe5\x8f\x98\xe5\xaf\xbc\xe8\x87\xb4\xe6\x9c\xac\xe8\xbd\xaf\xe4\xbb\xb6\xe4\xb8\x8d\xe5\x8f\xaf\xe7\x94\xa8\xef\xbc\x8c\xe4\xbb\xa5\xe5\x8f\x8a\xe7\x94\xb1\xe6\xad\xa4\xe5\xbc\x95\xe8\xb5\xb7\xe7\x9a\x84\xe4\xbb\xbb\xe4\xbd\x95\xe6\x8d\x9f\xe5\xa4\xb1\xe3\x80\x82\n\n    \xe6\x9c\xac\xe4\xba\xba\xe4\xb8\x8d\xe5\xaf\xb9\xe5\x9b\xa0\xe7\x99\xbe\xe5\xba\xa6\xe8\xa7\x84\xe5\x88\x99\xe7\x9a\x84\xe6\x94\xb9\xe5\x8f\x98\xe8\x80\x8c\xe5\xaf\xbc\xe8\x87\xb4\xe8\xbd\xaf\xe4\xbb\xb6\xe4\xb8\x8d\xe5\x8f\xaf\xe7\x94\xa8\xe6\x89\xbf\xe6\x8b\x85\xe4\xbb\xbb\xe4\xbd\x95\xe8\xb4\xa3\xe4\xbb\xbb\xef\xbc\x8c\xe4\xb9\x9f\xe4\xb8\x8d\xe6\x89\xbf\xe6\x8b\x85\xe4\xbb\xbb\xe4\xbd\x95\xe4\xb9\x89\xe5\x8a\xa1\xe5\x92\x8c\xe8\xb4\xa3\xe4\xbb\xbb\xe5\x8e\xbb\xe4\xbf\x9d\xe8\xaf\x81\xe8\xbd\xaf\xe4\xbb\xb6\xe7\x9a\x84\xe6\x8c\x81\xe7\xbb\xad\xe5\x8f\xaf\xe7\x94\xa8\xe3\x80\x82\xe4\xbb\x85\xe4\xbd\x9c\xe4\xb8\xba\xe8\xbd\xaf\xe4\xbb\xb6\xe7\x9a\x84\xe5\x88\xb6\xe4\xbd\x9c\xe8\x80\x85\xef\xbc\x8c\xe4\xb8\x8d\xe4\xbf\x9d\xe8\xaf\x81\xe9\xa1\xb9\xe7\x9b\xae\xe7\x9a\x84\xe5\x8f\xaf\xe6\x8c\x81\xe7\xbb\xad\xe6\x80\xa7\xef\xbc\x8c\xe4\xb8\x8d\xe4\xbf\x9d\xe8\xaf\x81\xe6\x94\xb6\xe7\x9b\x8a\xe7\x9a\x84\xe7\xa8\xb3\xe5\xae\x9a\xe6\x80\xa7\xe3\x80\x82\xe7\x94\xa8\xe6\x88\xb7\xe5\x9c\xa8\xe4\xbd\xbf\xe7\x94\xa8\xe6\x9c\xac\xe8\xbd\xaf\xe4\xbb\xb6\xe6\x97\xb6\xef\xbc\x8c\xe5\xba\x94\xe5\xbd\x93\xe8\x87\xaa\xe8\xa1\x8c\xe6\x89\xbf\xe6\x8b\x85\xe9\xa3\x8e\xe9\x99\xa9\xef\xbc\x8c\xe6\x9c\xac\xe4\xba\xba\xe4\xb8\x8d\xe5\xaf\xb9\xe5\x9b\xa0\xe4\xbd\xbf\xe7\x94\xa8\xe6\x9c\xac\xe8\xbd\xaf\xe4\xbb\xb6\xe8\x80\x8c\xe4\xba\xa7\xe7\x94\x9f\xe7\x9a\x84\xe4\xbb\xbb\xe4\xbd\x95\xe6\x8d\x9f\xe5\xa4\xb1\xe8\xb4\x9f\xe8\xb4\xa3\xe3\x80\x82\n\n    \xe6\x9c\xac\xe5\x85\x8d\xe8\xb4\xa3\xe5\xa3\xb0\xe6\x98\x8e\xe7\x9a\x84\xe8\xa7\xa3\xe9\x87\x8a\xe6\x9d\x83\xe5\xbd\x92\xe6\x88\x91\xe4\xb8\xaa\xe4\xba\xba\xe6\x89\x80\xe6\x9c\x89\xe3\x80\x82\n\n    \xe7\x89\xb9\xe6\xad\xa4\xe5\xa3\xb0\xe6\x98\x8e\xef\xbc\x81'
+        296     CALL_FUNCTION                 1
+        298     POP_TOP                       
+        300     LOAD_NAME                     13: time
+        302     LOAD_METHOD                   36: sleep
+        304     LOAD_CONST                    28: 3
+        306     CALL_METHOD                   1
+        308     POP_TOP                       
+        310     LOAD_NAME                     38: open
+        312     LOAD_CONST                    30: 'conf/secret.txt'
+        314     LOAD_CONST                    31: 'r'
+        316     LOAD_CONST                    32: 'utf8'
+        318     LOAD_CONST                    33: ('encoding',)
+        320     CALL_FUNCTION_KW              3
+        322     SETUP_WITH                    47
+        324     STORE_NAME                    39: f
+        326     LOAD_NAME                     39: f
+        328     LOAD_METHOD                   40: readline
+        330     CALL_METHOD                   0
+        332     STORE_NAME                    41: line
+        334     LOAD_NAME                     19: utils
+        336     LOAD_METHOD                   42: data_decrypt
+        338     LOAD_NAME                     41: line
+        340     LOAD_CONST                    34: 32
+        342     LOAD_CONST                    1: None
+        344     BUILD_SLICE                   2
+        346     BINARY_SUBSCR                 
+        348     CALL_METHOD                   1
+        350     STORE_NAME                    43: plaintext
+        352     LOAD_NAME                     43: plaintext
+        354     LOAD_CONST                    35: 6
+        356     LOAD_CONST                    36: 8
+        358     BUILD_SLICE                   2
+        360     BINARY_SUBSCR                 
+        362     LOAD_CONST                    37: '00'
+        364     COMPARE_OP                    2 (==)
+        366     POP_JUMP_IF_FALSE             194 (to 388)
+        368     LOAD_NAME                     12: os
+        370     LOAD_METHOD                   44: listdir
+        372     LOAD_CONST                    38: 'conf/cookies'
+        374     CALL_METHOD                   1
+        376     STORE_NAME                    45: dirs
+        378     LOAD_NAME                     46: len
+        380     LOAD_NAME                     45: dirs
+        382     CALL_FUNCTION                 1
+        384     STORE_NAME                    47: count
+        386     JUMP_FORWARD                  8 (to 404)
+        388     LOAD_NAME                     48: int
+        390     LOAD_NAME                     43: plaintext
+        392     LOAD_CONST                    35: 6
+        394     LOAD_CONST                    36: 8
+        396     BUILD_SLICE                   2
+        398     BINARY_SUBSCR                 
+        400     CALL_FUNCTION                 1
+        402     STORE_NAME                    47: count
+        404     POP_BLOCK                     
+        406     LOAD_CONST                    1: None
+        408     DUP_TOP                       
+        410     DUP_TOP                       
+        412     CALL_FUNCTION                 3
+        414     POP_TOP                       
+        416     JUMP_FORWARD                  8 (to 434)
+        418     WITH_EXCEPT_START             
+        420     POP_JUMP_IF_TRUE              212 (to 424)
+        422     RERAISE                       1
+        424     POP_TOP                       
+        426     POP_TOP                       
+        428     POP_TOP                       
+        430     POP_EXCEPT                    
+        432     POP_TOP                       
+        434     LOAD_NAME                     37: print
+        436     LOAD_CONST                    39: '\xe5\x8f\xaf\xe5\x90\x8c\xe6\x97\xb6\xe8\xbf\x90\xe8\xa1\x8c\xe8\xb4\xa6\xe5\x8f\xb7\xe6\x95\xb0:'
+        438     LOAD_NAME                     47: count
+        440     FORMAT_VALUE                  0
+        442     BUILD_STRING                  2
+        444     CALL_FUNCTION                 1
+        446     POP_TOP                       
+        448     BUILD_LIST                    0
+        450     STORE_NAME                    49: threads
+        452     BUILD_LIST                    0
+        454     STORE_NAME                    50: drivers
+        456     LOAD_NAME                     25: daili
+        458     CALL_FUNCTION                 0
+        460     STORE_NAME                    51: dl
+        462     SETUP_FINALLY                 6 (to 476)
+        464     LOAD_NAME                     51: dl
+        466     LOAD_METHOD                   52: run
+        468     CALL_METHOD                   0
+        470     POP_TOP                       
+        472     POP_BLOCK                     
+        474     JUMP_FORWARD                  35 (to 546)
+        476     DUP_TOP                       
+        478     LOAD_NAME                     53: Exception
+        480     JUMP_IF_NOT_EXC_MATCH         272 (to 544)
+        484     POP_TOP                       
+        486     STORE_NAME                    54: e
+        488     POP_TOP                       
+        490     SETUP_FINALLY                 22 (to 536)
+        492     LOAD_NAME                     17: logger
+        494     LOAD_METHOD                   55: error
+        496     LOAD_CONST                    40: '\xe6\x8a\x93\xe5\x8f\x96\xe4\xbb\xa3\xe7\x90\x86\xe6\x97\xb6\xe5\x87\xba\xe9\x94\x99!'
+        498     CALL_METHOD                   1
+        500     POP_TOP                       
+        502     LOAD_NAME                     17: logger
+        504     LOAD_METHOD                   56: info
+        506     LOAD_CONST                    41: 'exception,type={},content={}'
+        508     LOAD_METHOD                   57: format
+        510     LOAD_NAME                     58: repr
+        512     LOAD_NAME                     54: e
+        514     CALL_FUNCTION                 1
+        516     LOAD_NAME                     54: e
+        518     CALL_METHOD                   2
+        520     CALL_METHOD                   1
+        522     POP_TOP                       
+        524     POP_BLOCK                     
+        526     POP_EXCEPT                    
+        528     LOAD_CONST                    1: None
+        530     STORE_NAME                    54: e
+        532     DELETE_NAME                   54: e
+        534     JUMP_FORWARD                  5 (to 546)
+        536     LOAD_CONST                    1: None
+        538     STORE_NAME                    54: e
+        540     DELETE_NAME                   54: e
+        542     RERAISE                       1
+        544     RERAISE                       0
+        546     LOAD_NAME                     33: ui
+        548     LOAD_NAME                     50: drivers
+        550     LOAD_CONST                    42: ('drivers',)
+        552     CALL_FUNCTION_KW              1
+        554     STORE_NAME                    59: window
+        556     LOAD_NAME                     60: range
+        558     LOAD_NAME                     47: count
+        560     CALL_FUNCTION                 1
+        562     GET_ITER                      
+        564     FOR_ITER                      91 (to 748)
+        566     STORE_NAME                    61: i
+        568     SETUP_FINALLY                 12 (to 594)
+        570     LOAD_NAME                     8: parse_from_file
+        572     LOAD_CONST                    43: 'conf/cookies/fetch_tasks_curl'
+        574     LOAD_NAME                     61: i
+        576     LOAD_CONST                    44: 1
+        578     BINARY_ADD                    
+        580     FORMAT_VALUE                  0
+        582     LOAD_CONST                    45: '.txt'
+        584     BUILD_STRING                  3
+        586     CALL_FUNCTION                 1
+        588     STORE_NAME                    62: curl_data
+        590     POP_BLOCK                     
+        592     JUMP_FORWARD                  31 (to 656)
+        594     DUP_TOP                       
+        596     LOAD_NAME                     63: FileNotFoundError
+        598     JUMP_IF_NOT_EXC_MATCH         327 (to 654)
+        602     POP_TOP                       
+        604     STORE_NAME                    54: e
+        606     POP_TOP                       
+        608     SETUP_FINALLY                 18 (to 646)
+        610     LOAD_NAME                     17: logger
+        612     LOAD_METHOD                   56: info
+        614     LOAD_CONST                    46: '\xe8\xb4\xa6\xe5\x8f\xb7'
+        616     LOAD_NAME                     61: i
+        618     LOAD_CONST                    44: 1
+        620     BINARY_ADD                    
+        622     FORMAT_VALUE                  0
+        624     LOAD_CONST                    47: '\xe6\x9c\xaa\xe9\x85\x8d\xe7\xbd\xae'
+        626     BUILD_STRING                  3
+        628     CALL_METHOD                   1
+        630     POP_TOP                       
+        632     POP_BLOCK                     
+        634     POP_EXCEPT                    
+        636     LOAD_CONST                    1: None
+        638     STORE_NAME                    54: e
+        640     DELETE_NAME                   54: e
+        642     JUMP_ABSOLUTE                 282 (to 564)
+        646     LOAD_CONST                    1: None
+        648     STORE_NAME                    54: e
+        650     DELETE_NAME                   54: e
+        652     RERAISE                       1
+        654     RERAISE                       0
+        656     LOAD_NAME                     62: curl_data
+        658     LOAD_CONST                    48: 'headers'
+        660     BINARY_SUBSCR                 
+        662     STORE_NAME                    64: headers
+        664     LOAD_NAME                     19: utils
+        666     LOAD_METHOD                   65: get_proxies
+        668     CALL_METHOD                   0
+        670     STORE_NAME                    66: proxies
+        672     LOAD_NAME                     10: loginBaidu
+        674     LOAD_NAME                     62: curl_data
+        676     LOAD_NAME                     66: proxies
+        678     CALL_FUNCTION                 2
+        680     STORE_NAME                    67: driver
+        682     LOAD_NAME                     50: drivers
+        684     LOAD_METHOD                   68: append
+        686     LOAD_NAME                     67: driver
+        688     CALL_METHOD                   1
+        690     POP_TOP                       
+        692     LOAD_NAME                     1: threading
+        694     LOAD_ATTR                     69: Thread
+        696     LOAD_NAME                     34: main
+        698     LOAD_NAME                     64: headers
+        700     LOAD_NAME                     67: driver
+        702     BUILD_TUPLE                   2
+        704     LOAD_CONST                    49: ('target', 'args')
+        706     CALL_FUNCTION_KW              2
+        708     STORE_NAME                    70: thread_main
+        710     LOAD_CONST                    50: True
+        712     LOAD_NAME                     70: thread_main
+        714     STORE_ATTR                    71: daemon
+        716     LOAD_NAME                     49: threads
+        718     LOAD_METHOD                   68: append
+        720     LOAD_NAME                     70: thread_main
+        722     CALL_METHOD                   1
+        724     POP_TOP                       
+        726     LOAD_NAME                     70: thread_main
+        728     LOAD_METHOD                   72: start
+        730     CALL_METHOD                   0
+        732     POP_TOP                       
+        734     LOAD_NAME                     13: time
+        736     LOAD_METHOD                   36: sleep
+        738     LOAD_CONST                    51: 10
+        740     CALL_METHOD                   1
+        742     POP_TOP                       
+        744     JUMP_ABSOLUTE                 282 (to 564)
+        748     LOAD_NAME                     59: window
+        750     LOAD_METHOD                   73: mainloop
+        752     CALL_METHOD                   0
+        754     POP_TOP                       
+        756     LOAD_CONST                    1: None
+        758     RETURN_VALUE                  
+        760     LOAD_CONST                    1: None
+        762     RETURN_VALUE                  
