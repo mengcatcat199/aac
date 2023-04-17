@@ -1,0 +1,559 @@
+import os
+import re
+import tkinter as tk
+from tkinter import filedialog
+import openai
+import threading
+import shutil
+import itertools
+import time
+from docx import Document
+from docx.enum.text import WD_PARAGRAPH_ALIGNMENT  # 导入用于设置对齐方式的枚举
+from docx.shared import Pt  # 导入用于设置字体大小的单位
+from concurrent.futures import ThreadPoolExecutor
+import itertools
+import requests
+import configparser
+import subprocess
+import uuid
+from tkinter import ttk
+import json
+
+
+# 替换文件名中的非法字符
+def sanitize_filename(filename):
+    # 替换文件名中的非法字符
+    return re.sub(r'[\\/:"*?<>|]+', "_", filename)
+    
+# 从文件中读取 OpenAI API 密钥
+def read_api_key(file_name):
+    with open(file_name, "r", encoding="utf-8") as f:
+        return f.readline().strip()
+
+api_key = read_api_key("config/apikey.txt")
+openai.api_key = api_key
+
+def read_all_api_keys(file_name):
+    with open(file_name, "r", encoding="utf-8") as f:
+        return [line.strip() for line in f.readlines()]
+
+def move_failed_key_to_failkey(key):
+    with open("config/failkey.txt", "a", encoding="utf-8") as f:
+        f.write(f"{key}\n")
+    remove_key_from_apikeys(key)
+
+def remove_key_from_apikeys(key):
+    if key in api_keys:
+        api_keys.remove(key)
+    
+    api_keys = read_all_api_keys("config/apikey.txt")
+    if key in api_keys:
+        api_keys.remove(key)
+    
+    with open("config/apikey.txt", "w", encoding="utf-8") as f:
+        for api_key in api_keys:
+            f.write(f"{api_key}\n")
+# 该函数从文件中读取API密钥并返回一个包含密钥的列表           
+def load_api_keys(file_path):
+    with open(file_path, "r", encoding="utf-8") as file:
+        api_keys = [line.strip() for line in file.readlines()]
+    return api_keys
+
+# 从文件中读取标题列表
+def read_titles_from_file(file_name):
+    encodings = ['utf-8', 'gbk', 'gb18030']
+    titles = []
+
+    for encoding in encodings:
+        try:
+            with open(file_name, "r", encoding=encoding) as f:
+                titles = [line.strip() for line in f.readlines()]
+            break
+        except UnicodeDecodeError:
+            pass
+
+    if not titles:
+        raise Exception(f"无法使用给定的编码列表 {encodings} 读取文件：{file_name}")
+
+    return titles
+
+def generate_and_save_article(title, api_key, api_keys, folder_name, save_path, api_key_cycle):
+    article = ""
+    current_key_index = api_keys.index(api_key)
+    while not article:
+        try:
+            article = generate_article(title, api_key, api_key_cycle)
+        except openai.error.AuthenticationError:
+            log_text.insert(tk.END, f"密钥失效：{api_key}\n")
+            log_text.see(tk.END)
+            log_text.update()
+            time.sleep(2)
+            log_text.insert(tk.END, "暂停8秒...\n")
+            log_text.see(tk.END)
+            log_text.update()
+            time.sleep(8)
+
+            # 切换到下一个密钥
+            current_key_index = (current_key_index + 1) % len(api_keys)
+            api_key = api_keys[current_key_index]
+            log_text.insert(tk.END, f"切换密钥：{api_key}\n")
+            log_text.see(tk.END)
+            log_text.update()
+            time.sleep(2)
+
+    # 保存文章
+    save_formatted_article(title, article, folder_name, save_path)
+
+    
+# 生成文章    
+def generate_article(title, api_key, role_play, block_words, prompt, log_text):
+    log_text.insert(tk.END, f"正在生成文章：{title}\n")
+    log_text.see(tk.END)
+    prompt = f"请根据标题写一篇关于：\n{title}\n\n文章："
+    prompt = role_play + block_words + prompt  # 添加角色扮演输入内容和屏蔽词
+
+
+    article = ""
+
+    while not article.strip().endswith("。"):
+        try:
+            openai.api_key = api_key
+            response = openai.ChatCompletion.create(
+                model="gpt-3.5-turbo",
+                messages=[{"role": "user", "content": prompt + article}],
+                max_tokens=4096,
+            )
+            # 将新生成的内容添加到文章中
+            article += response.choices[0].message['content'].strip()
+            time.sleep(3)  # 保证每次请求之间至少有3秒的间隔
+
+        except openai.error.RateLimitError as e:
+            time.sleep(8)  # 暂停8秒，然后继续尝试生成文章
+            continue
+
+        except Exception as e:  # 捕获其他异常
+            print(f"发生异常：{e}")
+            move_failed_key_to_failkey(api_key)
+            api_key = next(api_key_cycle)  # 使用下一个API密钥
+            openai.api_key = api_key
+
+    return article
+
+# 检查目录是否存在并且具有写权限
+def check_directory(path):
+    if not os.path.exists(path):
+        os.makedirs(path)
+    if not os.access(path, os.W_OK):
+        raise Exception(f"无法在目录 {path} 中创建文件夹和文件。请检查您是否有足够的权限。")
+        
+
+# 保存格式化后的文章
+def save_formatted_article(title, article, folder_name, save_path):
+    if not os.path.exists(save_path):
+        os.makedirs(save_path)
+
+    file_name = os.path.join(save_path, sanitize_filename(title) + ".docx")
+    document = Document()
+    # 设置标题样式
+    title_paragraph = document.add_paragraph(title)
+    title_paragraph_format = title_paragraph.paragraph_format
+    title_paragraph_format.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER  # 将标题居中
+    title_font = title_paragraph.runs[0].font
+    title_font.name = "宋体"
+    title_font.size = Pt(28)  # 设置标题字体大小，例如16磅
+
+    # 添加换行
+    document.add_paragraph("\n")
+
+    # 设置文章内容样式
+    content_paragraph = document.add_paragraph(article)
+    content_font = content_paragraph.runs[0].font
+    content_font.name = "宋体"
+    content_font.size = Pt(20)  # 设置正文字体大小，例如12磅
+
+    document.add_paragraph("\n" * 1)
+    document.save(file_name)
+
+# 导入标题文件
+def set_role_play():
+    global role_play
+    role_play = role_play_var.get()
+    
+def import_titles():
+    set_role_play()  # 添加这行代码来设置 role_play 变量
+    global file_path, titles_file, titles
+    file_path = filedialog.askopenfilename()
+    if file_path:
+        titles_file = os.path.basename(file_path)
+        titles = read_titles_from_file(file_path)
+        log_text.insert(tk.END, "已导入标题文件。\n")
+        log_text.see(tk.END)
+    else:
+        log_text.insert(tk.END, "请选择一个标题文件。\n")
+        log_text.see(tk.END)
+
+        
+def start_generation(prompt_var, thread_num_var, api_key):
+    role_play = prompt_entry.get(1.0, tk.END).strip()
+    block_words = block_entry.get(1.0, tk.END).strip()
+    prompt = prompt_var.get()
+    thread_num = int(thread_num_var.get()) # 从这里获取线程数量
+
+    def threaded_generation(api_keys):
+        if not titles:
+            log_text.insert(tk.END, "请先导入标题文件。\n")
+            log_text.see(tk.END)
+            return
+        folder_name = os.path.splitext(os.path.basename(titles_file))[0]
+        save_path = os.path.join("output", folder_name)
+
+        with ThreadPoolExecutor(max_workers=thread_num) as executor:
+            # 使用itertools.cycle创建一个循环迭代器
+            api_key_cycle = itertools.cycle(api_keys)
+
+            futures = []
+            current_title = 0
+            for title in titles:
+                api_key = next(api_key_cycle)
+                # 生成并保存文章
+                future = executor.submit(generate_and_save_article, title, api_key, api_keys, folder_name, save_path, api_key_cycle)
+                futures.append(future)
+
+            for future in futures:
+                future.result()  # 等待所有任务完成
+                current_title += 1
+                log_text.insert(tk.END, f"已生成并保存文章 {current_title}/{len(titles)}：{title}\n")
+                log_text.see(tk.END)
+
+        log_text.insert(tk.END, "所有文章已生成并保存。\n")
+        log_text.see(tk.END)
+
+    # 创建并启动新线程
+    generation_thread = threading.Thread(target=threaded_generation, args=(api_key,))
+    generation_thread.start()
+
+
+# 授权开始
+def get_disk_serial_number():
+    if os.name == 'nt':  # Windows 系统
+        output = subprocess.check_output('wmic diskdrive get SerialNumber', shell=True).decode().strip()
+        serial_number = re.search(r'(\w{5,})', output).group(0)
+        return serial_number
+    elif os.name == 'posix':  # Linux 系统
+        output = subprocess.check_output('hdparm -I /dev/sda | grep Serial', shell=True).decode().strip()
+        serial_number = re.search(r'(\w{5,})', output).group(0)
+        return serial_number
+    else:
+        raise Exception("不支持的操作系统。")
+
+def get_mac_address():
+    mac_address = uuid.UUID(int=uuid.getnode()).hex[-12:]
+    return mac_address
+
+def get_machine_id():
+    disk_serial_number = get_disk_serial_number()
+    mac_address = get_mac_address()
+
+    machine_id = disk_serial_number + mac_address
+    return machine_id
+
+def validate_auth_code(max_attempts=2):
+    config = configparser.ConfigParser()
+    config.read('conf.ini')
+
+    auth_code = config.get('data', 'auth_code')
+    machine_id = get_machine_id()
+
+    attempts = 0
+    while attempts < max_attempts:
+        if not auth_code:
+            print("BOTIM文章撰写助手")
+            if machine_id:
+                print("您的机器码：", machine_id)  # 添加这一行来显示机器码
+                auth_code = input("请输入卡密：")
+                data = {
+                    'action': 'bind',
+                    'auth_code': auth_code,
+                    'machine_id': machine_id,
+                }
+            else:
+                print("无法获取机器码，请检查您的系统。")
+                return False
+        else:
+            data = {
+                'action': 'check',
+                'auth_code': auth_code,
+                'machine_id': machine_id,
+            }
+
+        response = requests.post("https://ai.xxbot.co/botimsq/auth_server.php", data=data)
+        try:
+            response_json = response.json()
+        except json.decoder.JSONDecodeError:
+            print("服务器返回了无效的 JSON 数据。")
+            return False
+
+        if "result" in response_json and response_json["result"] == "success":
+            if data["action"] == "bind":
+                config['data'] = {'auth_code': auth_code}
+                with open('conf.ini', 'w') as configfile:
+                    config.write(configfile)
+                expiration_time = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(response_json["expiration_time"]))
+                print("授权成功。BOTIM文章撰写助手到期时间：", expiration_time)
+            else:
+                print("BOTIM文章撰写助手")
+            if machine_id:
+                expiration_time = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(int(response_json["expiration_time"])))
+                print(f"卡密验证成功。到期时间：{expiration_time}")
+            return True
+        else:
+            print("授权失败，请重新输入。")
+            auth_code = None  # 重置 auth_code 以便用户重新输入
+            attempts += 1
+
+    print("尝试次数过多，程序退出。")
+    return False
+    
+# 设置线程数量的函数
+def set_thread_num():
+    global thread_num
+    try:
+        input_thread_num = int(thread_num_var.get())
+        if input_thread_num > 10:
+            data_text.insert(tk.END, "注意：线程数不能超过10，请重新输入。\n")
+            data_text.see(tk.END)
+        else:
+            thread_num = input_thread_num
+    except ValueError:
+        data_text.insert(tk.END, "错误：请输入一个有效的数字。\n")
+        data_text.see(tk.END)
+
+def on_thread_selected(event):
+    global thread_var
+    global thread_num
+    global thread_data
+    selected_thread = thread_var.get()
+    for item in thread_data:
+        if item["thread"] == selected_thread:
+            thread_num = int(item["value"])
+            break
+
+def load_thread_data():
+    # 获取当前文件所在的绝对路径
+    current_path = os.path.dirname(os.path.abspath(__file__))
+    # 拼接 config/Thread.json 的绝对路径
+    thread_json_path = os.path.join(current_path, "config", "Thread.json")
+
+    try:
+        with open(thread_json_path, "r", encoding="utf-8") as file:
+            data = json.load(file)
+        return data
+    except json.JSONDecodeError as e:
+        print(f"解析 Thread.json 文件时出错：{e}")
+        print(f"错误发生在 {e.doc} 的第 {e.lineno} 行，第 {e.colno} 列")
+        sys.exit()
+        
+def load_prompt_data():
+    with open("config/Prompt.json", "r", encoding="utf-8") as file:
+        data = json.load(file)
+    return data
+
+
+def import_keys():
+    file_path = filedialog.askopenfilename()
+    if file_path:
+        with open(file_path, "r") as f:
+            keys = f.read()
+        key_text.delete(1.0, tk.END)
+        key_text.insert(tk.INSERT, keys)
+        with open("config/apikey.txt", "w") as f:
+            f.write(keys)
+
+
+def main_gui():
+    global log_text, key_text, title_button, thread_entry
+    global key_button, start_button, block_entry, prompt_entry
+    global role_play_var  # 声明 role_play_var 为全局变量
+    global thread_var     # 声明 thread_var 为全局变量
+    global thread_data
+    prompt_data = load_prompt_data()
+    
+    thread_data = load_thread_data()
+
+    def on_prompt_selected(event):
+        selected_prompt = prompt_var.get()
+        if selected_prompt != "精品提示词":
+            for item in prompt_data:
+                if item["Prompt"] == selected_prompt:
+                    prompt_entry.delete('1.0', tk.END)
+                    prompt_entry.insert('1.0', item["value"])
+                    break
+            
+    # 创建 GUI
+    root = tk.Tk()
+    root.title("BOTIM文章撰写助手")
+    root.geometry('800x580')
+    root.resizable(False, False)
+    
+    # 声明 role_play_var 为全局变量
+    role_play_var = tk.StringVar()
+
+    # 角色扮演输入框相关变量和函数
+    role_play_var = tk.StringVar()
+    role_play = ""  # 设置 role_play 变量的初始值为空字符串
+        
+    # 创建一个标签框架，用于包含运行日志
+    log_frame = tk.LabelFrame(root, text="运行日志", width=460, height=330)
+    log_frame.place(x=10, y=10)
+
+    # 创建一个文本框，用于显示运行日志
+    log_text = tk.Text(log_frame, width=60, height=22)
+    log_text.place(x=10, y=20)
+
+    # 创建一个标签框架，用于包含密钥填写
+    key_frame = tk.LabelFrame(root, text="密钥填写", width=300, height=330)
+    key_frame.place(x=480, y=10)
+
+    # 创建一个文本框，用于输入密钥
+    key_text = tk.Text(key_frame, width=37, height=22)
+    key_text.place(x=10, y=20)
+
+    # 创建一个标签框架，用于包含各个按钮和输入框
+    control_frame = tk.LabelFrame(root, text="控制区域", width=780, height=70)
+    control_frame.place(x=10, y=350)
+
+    # 创建并放置各个按钮和输入框
+    title_button = tk.Button(control_frame, text="导入标题", width=16, height=1)
+    title_button.place(x=10, y=10)
+    title_button.config(command=import_titles)
+
+    # 提示词下拉框
+    prompt_var = tk.StringVar()
+    prompt_combobox = ttk.Combobox(control_frame, textvariable=prompt_var, values=["精品提示词"] + [item["Prompt"] for item in prompt_data], state="readonly")
+    prompt_combobox.config(width=15)
+    prompt_combobox.place(x=160, y=15)
+    prompt_combobox.set("精品提示词")
+    prompt_combobox.bind("<<ComboboxSelected>>", on_prompt_selected)
+    # 线程下拉框
+    thread_var = tk.StringVar()
+    thread_combobox = ttk.Combobox(control_frame, textvariable=thread_var, values=[item["thread"] for item in thread_data], state="readonly")
+    thread_combobox.config(width=15)
+    thread_combobox.place(x=310, y=15)
+    thread_combobox.set(thread_data[0]["thread"])
+    thread_combobox.bind("<<ComboboxSelected>>", on_thread_selected)
+    
+    # 先创建 key_button
+    key_button = tk.Button(control_frame, text="导入密钥", width=16, height=1)
+    key_button.place(x=490, y=10)
+
+    # 然后再设置 command
+    key_button.config(command=import_keys)
+    
+    # 先创建 start_button
+    start_button = tk.Button(control_frame, text="开始生成", width=16, height=1)
+    start_button.place(x=650, y=10)
+
+    # 然后再设置 command
+    start_button.config(command=lambda: start_generation(prompt_var, thread_num_var, key_text.get(1.0, tk.END).strip()))
+    
+    # 创建一个标签框架，用于包含屏蔽词输入框和提示词输入框
+    input_frame = tk.LabelFrame(root, text="输入区域", width=780, height=150)
+    input_frame.place(x=10, y=420)
+
+    # 创建提示词输入框和屏蔽词输入框，并设置它们的大小和位置
+    prompt_entry = tk.Text(input_frame, width=51, height=7)
+    prompt_entry.place(x=10, y=20)
+
+    block_entry = tk.Text(input_frame, width=51, height=7)
+    block_entry.place(x=400, y=20)
+
+    # 在提示词输入框和屏蔽词输入框中添加灰色提示文字
+    prompt_entry.insert('1.0', "提示词")
+    prompt_entry.configure(fg='grey')
+    prompt_entry.bind('<FocusIn>', lambda event: on_focus_in(event, prompt_entry, "提示词"))
+    prompt_entry.bind('<FocusOut>', lambda event: on_focus_out(event, prompt_entry, "提示词"))
+
+    block_entry.insert('1.0', "屏蔽词")
+    block_entry.configure(fg='grey')
+    block_entry.bind('<FocusIn>', lambda event: on_focus_in(event, block_entry, "屏蔽词"))
+    block_entry.bind('<FocusOut>', lambda event: on_focus_out(event, block_entry, "屏蔽词"))
+    
+    # 从文件中读取 API 密钥并插入到 key_text 文本框中
+    with open("config/apikey.txt", "r") as f:
+        keys = f.read()
+    key_text.insert(tk.INSERT, keys)
+    
+    
+
+    root.mainloop()
+
+def on_focus_in(event, entry, placeholder):
+    if entry.get('1.0', 'end-1c') == placeholder:
+        entry.delete('1.0', 'end')
+        entry.configure(fg='black')
+
+def on_focus_out(event, entry, placeholder):
+    if entry.get('1.0', 'end-1c') == '':
+        entry.insert('1.0', placeholder)
+        entry.configure(fg='grey')
+
+def check_expiration_time():
+    config = configparser.ConfigParser()
+    config.read('conf.ini')
+    auth_code = config.get('data', 'auth_code')
+
+    if auth_code:
+        machine_id = get_machine_id()
+
+        if machine_id:
+            data = {
+                'action': 'check',
+                'auth_code': auth_code,
+                'machine_id': machine_id,
+            }
+
+            try:
+                response = requests.post("https://ai.xxbot.co/botimsq/auth_server.php", data=data)
+                response.raise_for_status()  # 检查状态码并引发异常
+
+                response_json = response.json()
+
+                if "result" in response_json and response_json["result"] == "success":
+                    expiration_time = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(response_json["expiration_time"]))
+                    print("BOTIM文章撰写助手到期时间：", expiration_time)
+                    return True
+                else:
+                    print("授权验证失败。")
+                    return False
+            except requests.exceptions.RequestException:
+                print("服务器返回了错误的状态码。")
+                return False
+            except ValueError:
+                print("服务器返回了无效的 JSON。")
+                return False
+        else:
+            print("无法获取机器码，请检查您的系统。")
+            return False
+    else:
+        print("未绑定卡密。")
+        return False
+
+def periodic_expiration_check(root):
+    is_valid = check_expiration_time()
+    if not is_valid:
+        # 在验证失败时关闭窗口
+        root.destroy()  # 关闭 GUI 窗口
+        # 重新运行授权验证函数
+        if validate_auth_code():
+            root.mainloop()
+        else:
+            sys.exit()
+    root.after(2 * 60 * 60 * 1000, periodic_expiration_check, root)  # 每2小时执行一次检查
+
+#  授权结束
+if __name__ == "__main__":
+    if validate_auth_code():
+        main_gui()  # 修改此处，仅调用 main_gui() 函数
+    else:
+        print("卡密验证失败，程序将退出。")
+        sys.exit()
